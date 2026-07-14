@@ -1,0 +1,1 @@
+- [Vercel/Next.js port: Link conversion](vercel-port-link-conversion.md) — the fullstack-copy-frontend script doesn't convert next/link; a naive sed pass misses multi-line `<Link\n  ...>` tags, causing JSX mismatch errors.

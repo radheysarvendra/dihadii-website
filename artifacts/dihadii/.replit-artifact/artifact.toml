@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Dihadii"
+version = "1.0.0"
+id = "artifacts/dihadii"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 26177
+
+[services.development]
+run = "pnpm --filter @workspace/dihadii run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/dihadii", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/dihadii/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "26177"
+BASE_PATH = "/"

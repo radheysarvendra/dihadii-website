@@ -1,0 +1,273 @@
+Here's your complete single combined prompt:
+
+---
+
+> I am building a landing page for **Dehaadi** — a labour booking app. Read all my project files carefully and make ALL the following changes in one go.
+>
+> **Brand Color:** `[ADD YOUR COLOR CODE HERE]`
+> **Support Phone:** `[ADD PHONE NUMBER]`
+> **Support Address:** `[ADD ADDRESS]`
+>
+> ---
+>
+> **Before writing any code:**
+> 1. List every file you will create or change
+> 2. What exact change in each file
+> 3. Wait for my go-ahead before writing anything
+>
+> ---
+>
+> ## CHANGE 1 — Logo
+> Replace the current logo with the new logo image I will provide.
+> Use it in the header/navbar.
+> Placeholder for now: `{/* LOGO IMAGE GOES HERE */}`
+>
+> ---
+>
+> ## CHANGE 2 — Header Navigation
+> Add these items to the navbar:
+> - **Services** → dropdown on hover/click showing all 16 labour categories. Each category is clickable and opens a dedicated page. Category page layout follows: `https://www.withpronto.com/services/hourly-30-minutes-1-hour-90-minutes/`
+> - **Contact Us** → smooth scroll to Contact Us section on same page
+>
+> ---
+>
+> ## CHANGE 3 — Categories Section
+> Replace current "Available Labour Skills" grid with this new layout matching the Snapbbit reference:
+> - Large hero-style container with a background image
+> - Top left: "SERVICES" label in brand color, uppercase, small font
+> - Big heading: "What Kind of Work Do You Need?"
+> - Top right: "View All →" button with arrow circle in brand color
+> - Bottom: horizontal scrollable photo cards row — each card has:
+>   - Real photo background (full card)
+>   - Skill/category name at bottom left in white bold text
+>   - Small white arrow circle button at bottom right
+>   - Rounded corners, slight shadow
+>   - On click → navigate to that category's dedicated page
+>
+> ```javascript
+> const CATEGORIES = [
+>   { name: "Mason",          hindi: "राजमिस्त्री",   img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400" },
+>   { name: "Carpenter",      hindi: "बढ़ई",           img: "https://images.unsplash.com/photo-1601628828688-632f38a5a7d0?w=400" },
+>   { name: "Painter",        hindi: "पेंटर",          img: "https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=400" },
+>   { name: "Electrician",    hindi: "इलेक्ट्रिशियन", img: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=400" },
+>   { name: "Plumber",        hindi: "प्लंबर",         img: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=400" },
+>   { name: "Housemaid",      hindi: "घरेलू सहायिका", img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400" },
+>   { name: "Cook/Helper",    hindi: "रसोइया",         img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400" },
+>   { name: "Cleaner",        hindi: "सफाई कर्मी",    img: "https://images.unsplash.com/photo-1527515637462-cff94edd16f2?w=400" },
+>   { name: "Gardener",       hindi: "माली",            img: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400" },
+>   { name: "Caretaker",      hindi: "देखभालकर्ता",   img: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=400" },
+>   { name: "Delivery Boy",   hindi: "डिलीवरी बॉय",   img: "https://images.unsplash.com/photo-1609859336575-b083c8707cad?w=400" },
+>   { name: "Security Guard", hindi: "सुरक्षा गार्ड", img: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=400" },
+>   { name: "Farm Labourer",  hindi: "खेत मजदूर",     img: "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=400" },
+>   { name: "Shop Helper",    hindi: "दुकान सहायक",   img: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=400" },
+>   { name: "Tailor",         hindi: "दर्जी",           img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" },
+>   { name: "Hotel/Dhaba",    hindi: "होटल मजदूर",    img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400" },
+> ];
+> ```
+>
+> ---
+>
+> ## CHANGE 4 — Remove Aadhaar Verified Badge
+> Find and remove the "Aadhaar Verified" badge/chip/icon from wherever it appears on the page.
+>
+> ---
+>
+> ## CHANGE 5 — How It Works Section
+> Replace the current "How It Works" section completely with this new dark-themed layout matching the reference image I uploaded:
+>
+> - **Background:** Black/very dark (`#0a0a0a` or `#111111`)
+> - **Top left:** "HOW IT WORKS" label in brand color, uppercase, small font, bold
+> - **Heading:** "Simple steps to find your worker." in white, large bold font (display size)
+> - **Subtext:** "Follow these simple steps to book skilled labour in minutes." in gray (`#94a3b8`)
+> - Below heading: 3 mobile phone mockup cards side by side
+>
+> Each phone card:
+> - Rounded phone frame (border-radius: 36px) with brand color background behind it (dotted/subtle pattern)
+> - Phone screen shows app screenshot (placeholder for now)
+> - Below each phone: step number + step title + description
+>
+> ```javascript
+> const STEPS = [
+>   {
+>     step: "01",
+>     title: "Choose a Service",
+>     desc: "Browse all available labour categories and select the skill you need.",
+>     screenPlaceholder: "{/* STEP 1 APP SCREEN IMAGE */}"
+>   },
+>   {
+>     step: "02",
+>     title: "Enter Your Location",
+>     desc: "Enter your pincode or area to find skilled workers near you.",
+>     screenPlaceholder: "{/* STEP 2 APP SCREEN IMAGE */}"
+>   },
+>   {
+>     step: "03",
+>     title: "Confirm Your Booking",
+>     desc: "Select a worker, review the details, and confirm your booking instantly.",
+>     screenPlaceholder: "{/* STEP 3 APP SCREEN IMAGE */}"
+>   },
+> ];
+> ```
+>
+> Phone card style:
+> - Width: 280px each
+> - Height: 500px
+> - Border-radius: 36px on the outer frame
+> - Brand color background with subtle dot pattern behind each phone
+> - White phone frame inner border
+> - Screen area: white/gray placeholder with centered app screenshot image
+> - Step number in brand color, bold, large
+> - Title in white, bold
+> - Description in gray
+>
+> ---
+>
+> ## CHANGE 6 — Download App Button Section
+> Remove the current mobile screen mockup from download section.
+> Remove the section background — use clean white.
+>
+> Add a Download App button:
+> - Pill shape: `border-radius: 50px`
+> - Both Apple App Store icon (🍎) and Google Play Store icon (▶️) inside — side by side
+> - Text: "Download App"
+> - Background: brand color
+> - Text color: white
+> - Soft glowing box-shadow in brand color behind button
+> - Below button: "Available on iOS & Android" small gray text
+>
+> Add app image placeholder: `{/* APP IMAGE GOES HERE */}`
+>
+> ---
+>
+> ## CHANGE 7 — Where We Serve Section
+> Replace or update current cities section:
+> - Top label: "WHERE WE SERVE" in brand color, uppercase
+> - Heading: "Labour Across India"
+> - Subtext: "Find skilled labour across major cities, with new areas going live every month."
+> - Horizontal scrollable city cards
+>
+> Each card:
+> - City name bold at top
+> - Area count in gray below
+> - City photo (rounded, 120px height, object-fit cover)
+> - Status badge based on status
+>
+> ```javascript
+> const CITIES = [
+>   { name: "Lucknow",   areas: "12 areas",      status: "live",   img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" },
+>   { name: "Varanasi",  areas: "8 areas",        status: "live",   img: "https://images.unsplash.com/photo-1561361058-c24cecae35ca?w=400" },
+>   { name: "Agra",      areas: "6 areas",        status: "live",   img: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400" },
+>   { name: "Kanpur",    areas: "9 areas",        status: "live",   img: "https://images.unsplash.com/photo-1599030450503-db347d6ef4e2?w=400" },
+>   { name: "Allahabad", areas: "7 areas",        status: "live",   img: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400" },
+>   { name: "Gorakhpur", areas: "Launching Soon", status: "soon",   img: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400" },
+>   { name: "Delhi",     areas: "Coming Soon",    status: "coming", img: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=400" },
+>   { name: "Mumbai",    areas: "Coming Soon",    status: "coming", img: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=400" },
+>   { name: "Bangalore", areas: "Coming Soon",    status: "coming", img: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=400" },
+>   { name: "Hyderabad", areas: "Coming Soon",    status: "coming", img: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400" },
+>   { name: "Pune",      areas: "Coming Soon",    status: "coming", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" },
+>   { name: "Jaipur",    areas: "Coming Soon",    status: "coming", img: "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=400" },
+> ];
+> ```
+>
+> Status styles:
+> ```
+> live    → Normal card, clickable, brand color border on hover
+> soon    → Photo dimmed opacity 0.7 + "🚀 Launching Soon" badge in brand color at bottom of photo
+> coming  → Photo grayscale (filter: grayscale(100%)) + "Coming Soon" gray badge, NOT clickable
+> ```
+>
+> ---
+>
+> ## CHANGE 8 — Remove Features Section
+> Remove the existing "Features" section completely from the page.
+>
+> ---
+>
+> ## CHANGE 9 — FAQ Section
+> Add a new FAQ accordion section above the footer.
+>
+> - Heading: "Frequently Asked Questions"
+> - Subtext: "Everything you need to know about Dehaadi"
+>
+> ```javascript
+> const FAQS = [
+>   {
+>     q: "What is Dehaadi, and who can use it?",
+>     a: "Dehaadi connects customers and businesses with skilled workers, labourers, contractors, and local service providers."
+>   },
+>   {
+>     q: "How can I book a skilled worker?",
+>     a: "Choose a service, enter your location, select a suitable worker, and submit your booking request."
+>   },
+>   {
+>     q: "How are service charges determined?",
+>     a: "Charges depend on the type of work, duration, worker experience, location, and travel distance."
+>   },
+>   {
+>     q: "Can I cancel or reschedule my booking?",
+>     a: "Yes. You can cancel or reschedule before the work starts, subject to the booking status and worker availability."
+>   },
+>   {
+>     q: "Can businesses hire multiple workers through Dehaadi?",
+>     a: "Yes. Businesses and contractors can request multiple workers based on skill, location, duration, and workforce requirements."
+>   },
+>   {
+>     q: "How can I contact the Dehaadi support team?",
+>     a: "You can contact support through the Help & Support section, official email address, or customer-care number."
+>   },
+> ];
+> ```
+>
+> FAQ style:
+> - Clean accordion with `+` / `−` toggle icon on right side
+> - Bottom border separator between each item
+> - Smooth expand/collapse animation (max-height transition)
+> - Question: bold, 16px, dark color
+> - Answer: gray, 14px, line-height 1.7
+> - Active/open question: brand color text
+> - Max width: 780px, centered
+>
+> ---
+>
+> ## CHANGE 10 — Contact Us Section
+> Add a Contact Us section (linked from header nav via smooth scroll, id="contact").
+>
+> Layout: 2 columns — left form, right contact info
+>
+> Left — Contact Form:
+> - Heading: "Get In Touch"
+> - Subtext: "Have a question or need help? We are here for you."
+> - Fields:
+>   - Full Name (required)
+>   - Phone Number (required, 10 digits, numeric only)
+>   - Email Address (optional)
+>   - Message (textarea, required, min 3 rows)
+>   - Submit button full width in brand color: "Send Message"
+> - On submit: show success message "Thank you! We will contact you soon."
+> - Basic validation: name required, phone must be 10 digits
+>
+> Right — Contact Info Cards:
+> ```
+> 📧 Email:   support@dehaadi.com
+> 📞 Phone:   [ADD PHONE NUMBER]
+> 📍 Address: [ADD ADDRESS]
+> 🕐 Hours:   Monday – Saturday, 9 AM – 6 PM
+> ```
+>
+> Style:
+> - Each info item in a small card with icon in brand color
+> - White background cards with subtle shadow
+> - Responsive: stack to single column on mobile
+>
+> ---
+>
+> ## GLOBAL RULES
+> - Brand color used consistently across all sections for buttons, badges, labels, borders, icons
+> - All sections fully responsive (mobile first)
+> - No hardcoded pixel widths — use percentage or max-width with auto margins
+> - Smooth scroll behavior on the page (`scroll-behavior: smooth`)
+> - All images use `object-fit: cover` and have `alt` text
+> - No console errors or warnings
+> - Follow existing project code style and folder structure
+> - Do NOT change anything not listed above
+>

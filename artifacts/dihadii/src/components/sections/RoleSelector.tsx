@@ -52,9 +52,9 @@ export function RoleSelector() {
   return (
     <SectionWrapper id="roles">
       <SectionHeading
-        title="Who Can Use Dihadii"
+        title="Who Can Use Dehaadi"
         hindiTagline="कौन इस्तेमाल कर सकता है"
-        subtitle="Whether you're looking for work or hiring workers — Dihadii has a path for you."
+        subtitle="Whether you're looking for work or hiring workers — Dehaadi has a path for you."
       />
 
       <motion.div

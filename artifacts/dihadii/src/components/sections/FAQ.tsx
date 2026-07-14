@@ -1,64 +1,66 @@
-
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { SectionWrapper, SectionHeading } from "@/components/shared/SectionWrapper";
+import { SectionWrapper } from "@/components/shared/SectionWrapper";
 
 const faqs = [
   {
-    question: "What is Dihadii?",
+    question: "What is Dehaadi, and who can use it?",
     answer:
-      "Dihadii (Kaam Pe Chalo) is an on-demand platform that connects people with verified labour, mistri (skilled tradespeople), and contractors. Whether you need a mason, farm worker, factory helper, or a full contractor team — Dihadii matches you with the right worker at a fair, transparent daily rate.",
+      "Dehaadi connects customers and businesses with skilled workers, labourers, contractors, and local service providers.",
   },
   {
-    question: 'How does Dihadii make sure I get the "right" worker for the job?',
+    question: "How can I book a skilled worker?",
     answer:
-      "Dihadii uses skill matching, work category filters, ratings & reviews, and verification badges to help you find the best fit. You can see each worker's skills, daily rate, experience, and past reviews before making a choice — so you pick based on value and trust, not guesswork.",
+      "Choose a service, enter your location, select a suitable worker, and submit your booking request.",
   },
   {
-    question: "How are workers verified?",
+    question: "How are service charges determined?",
     answer:
-      "Every worker on Dihadii goes through Aadhaar verification and background checks before they can accept jobs. Verified badges are displayed on profiles so you know you're hiring someone trustworthy.",
+      "Charges depend on the type of work, duration, worker experience, location, and travel distance.",
   },
   {
-    question: "How do I register as a worker/contractor?",
+    question: "Can I cancel or reschedule my booking?",
     answer:
-      "Download the Dihadii app, enter your mobile number, choose your role (Labour or Contractor), complete your profile with skills and daily rate, and submit for verification. Once approved, you can start receiving job matches in your area.",
+      "Yes. You can cancel or reschedule before the work starts, subject to the booking status and worker availability.",
   },
   {
-    question: "Is pricing transparent — any hidden charges?",
+    question: "Can businesses hire multiple workers through Dehaadi?",
     answer:
-      "Yes. Dihadii is built on transparent daily rates. Workers set their own rates, and you see the full price upfront — no hidden fees, no broker commissions, no surprise charges. What you see is what you pay.",
+      "Yes. Businesses and contractors can request multiple workers based on skill, location, duration, and workforce requirements.",
   },
   {
-    question: "Which cities/areas are you live in?",
+    question: "How can I contact the Dehaadi support team?",
     answer:
-      "Dihadii is currently expanding across Haryana and NCR, starting with Gurugram. More cities including Faridabad, Delhi NCR, Sonipat, and others are coming soon. Check the Coverage section above for the latest availability.",
-  },
-  {
-    question: "How do I become a contractor on the platform?",
-    answer:
-      "Select 'I am a Contractor' during registration, complete your business profile with project types and team size, set your rates, and get verified. Once approved, you can post projects, hire workers, and connect with clients directly.",
+      "You can contact support through the Help & Support section, official email address, or customer-care number.",
   },
 ];
 
 export function FAQ() {
   return (
     <SectionWrapper id="faq">
-      <SectionHeading
-        title="Frequently Asked Questions"
-        hindiTagline="अक्सर पूछे जाने वाले सवाल"
-      />
+      <div className="mb-12 text-center md:mb-16">
+        <h2 className="text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl md:text-5xl">
+          Frequently Asked Questions
+        </h2>
+        <p className="mt-4 text-lg text-brand-slate">
+          Everything you need to know about Dehaadi
+        </p>
+      </div>
 
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-[780px]">
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
             <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger>{faq.question}</AccordionTrigger>
-              <AccordionContent>{faq.answer}</AccordionContent>
+              <AccordionTrigger className="text-left text-base font-bold text-brand-navy data-[state=open]:text-brand-blue">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-sm leading-[1.7] text-brand-slate">
+                {faq.answer}
+              </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>

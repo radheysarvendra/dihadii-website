@@ -42,7 +42,10 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <LogoImage variant="white" className="h-9 w-auto" />
+            <div className="flex items-center gap-2">
+              <LogoImage variant="white" className="h-9 w-9" />
+              <span className="text-lg font-extrabold text-white">Dehaadi</span>
+            </div>
             <p className="mt-4 text-sm leading-relaxed text-white/60">
               Right Worker &bull; Right Price &bull; Right Job
             </p>
@@ -126,10 +129,10 @@ export function Footer() {
             <div className="mt-6 flex items-center gap-2 text-sm text-white/50">
               <Mail className="h-4 w-4" />
               <a
-                href="mailto:support@dihadii.com"
+                href="mailto:support@dehaadi.com"
                 className="transition-colors hover:text-white"
               >
-                support@dihadii.com
+                support@dehaadi.com
               </a>
             </div>
           </div>
@@ -150,7 +153,7 @@ export function Footer() {
             ))}
           </div>
           <p className="text-xs text-white/40">
-            &copy; 2026 Dihadii Pvt. Ltd. All rights reserved.
+            &copy; 2026 Dehaadi Pvt. Ltd. All rights reserved.
           </p>
         </div>
       </div>

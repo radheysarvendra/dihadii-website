@@ -1,87 +1,74 @@
-
 import { motion } from "framer-motion";
-import {
-  HardHat,
-  Wheat,
-  Factory,
-  Truck,
-  Home,
-  Store,
-} from "lucide-react";
-import { SectionWrapper, SectionHeading } from "@/components/shared/SectionWrapper";
-import { staggerContainer, fadeInUp } from "@/lib/animations";
-
-const services = [
-  {
-    icon: HardHat,
-    title: "Construction & Building Work",
-    description: "Masons, painters, plumbers, electricians, and all building trades.",
-  },
-  {
-    icon: Wheat,
-    title: "Agriculture & Farming",
-    description: "Farm labour, harvest help, irrigation, and seasonal agricultural work.",
-  },
-  {
-    icon: Factory,
-    title: "Factory & Industrial Work",
-    description: "Assembly line workers, machine operators, and industrial helpers.",
-  },
-  {
-    icon: Truck,
-    title: "Transport & Delivery",
-    description: "Drivers, loaders, delivery personnel, and logistics support.",
-  },
-  {
-    icon: Home,
-    title: "Domestic & Household Work",
-    description: "House help, cooks, cleaners, and household maintenance workers.",
-  },
-  {
-    icon: Store,
-    title: "Market & Shop Work",
-    description: "Shop assistants, loaders, market vendors, and retail support staff.",
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { fadeInUp } from "@/lib/animations";
+import { CATEGORIES } from "@/data/categories";
 
 export function Services() {
   return (
-    <SectionWrapper id="services">
-      <SectionHeading
-        title="For Every Kind of Work"
-        hindiTagline="हर तरह का काम"
-        subtitle="From construction sites to farms, factories to homes — find verified workers for every category of skilled and daily-wage work."
-      />
+    <section id="services" className="py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={fadeInUp}
+          className="relative overflow-hidden rounded-[2rem] bg-brand-navy px-6 py-12 sm:px-10 md:py-16"
+        >
+          {/* Background image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-25"
+            style={{ backgroundImage: `url(${CATEGORIES[0].img})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/70 via-brand-navy/85 to-brand-navy" />
 
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-60px" }}
-        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        {services.map((service) => (
-          <motion.div
-            key={service.title}
-            variants={fadeInUp}
-            className="group rounded-2xl border border-brand-blue/8 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/20 hover:shadow-lg hover:shadow-brand-blue/10"
-          >
-            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-blue/10 transition-colors duration-300 group-hover:bg-brand-blue group-hover:text-white">
-              <service.icon className="h-7 w-7 text-brand-blue transition-colors duration-300 group-hover:text-white" />
+          <div className="relative">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">
+                  Services
+                </span>
+                <h2 className="mt-3 max-w-lg text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-5xl">
+                  What Kind of Work Do You Need?
+                </h2>
+              </div>
+
+              <a
+                href="#services"
+                className="group inline-flex shrink-0 items-center gap-3 self-start rounded-full border border-white/20 bg-white/5 py-2 pl-5 pr-2 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10 sm:self-auto"
+              >
+                View All
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-orange text-white transition-transform group-hover:translate-x-0.5">
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+              </a>
             </div>
-            <h3 className="text-lg font-bold text-brand-navy">{service.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-brand-slate">
-              {service.description}
-            </p>
-          </motion.div>
-        ))}
-      </motion.div>
 
-      <div className="mt-10 flex justify-center">
-        <span className="rounded-full bg-brand-blue/10 px-6 py-2.5 text-sm font-semibold text-brand-blue">
-          And many more skilled & daily-wage jobs
-        </span>
+            <div className="mt-10 -mx-6 flex gap-4 overflow-x-auto px-6 pb-4 sm:-mx-10 sm:px-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {CATEGORIES.map((cat) => (
+                <a
+                  key={cat.slug}
+                  href={`/services/${cat.slug}`}
+                  className="group relative h-64 w-44 shrink-0 overflow-hidden rounded-2xl shadow-lg shadow-black/20 sm:h-72 sm:w-52"
+                >
+                  <img
+                    src={cat.img}
+                    alt={cat.name}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-4">
+                    <span className="text-sm font-bold text-white sm:text-base">{cat.name}</span>
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-brand-navy transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      <ArrowRight className="h-4 w-4" />
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }

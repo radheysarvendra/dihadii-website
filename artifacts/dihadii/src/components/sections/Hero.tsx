@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import {
   ShieldCheck,
-  BadgeCheck,
   IndianRupee,
   MapPin,
   Briefcase,
@@ -11,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 const trustBadges = [
-  { icon: BadgeCheck, label: "Aadhaar Verified" },
   { icon: ShieldCheck, label: "Background Checked" },
   { icon: IndianRupee, label: "Transparent Daily Rate" },
 ];

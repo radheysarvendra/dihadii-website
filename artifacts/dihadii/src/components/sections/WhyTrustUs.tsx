@@ -49,7 +49,7 @@ export function WhyTrustUs() {
   return (
     <SectionWrapper id="why-trust" className="bg-white">
       <SectionHeading
-        title="Why Trust Dihadii"
+        title="Why Trust Dehaadi"
         hindiTagline="भरोसा क्यों करें"
         subtitle="Built on verification, transparency, and fair pricing — not empty promises."
       />

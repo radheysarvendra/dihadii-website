@@ -4,8 +4,14 @@ interface LogoImageProps {
   priority?: boolean;
 }
 
-export function LogoImage({ variant = "color", className }: LogoImageProps) {
-  const src = variant === "white" ? "/logo-white.svg" : "/logo.svg";
-
-  return <img src={src} alt="Dihadii" width={140} height={40} className={className} />;
+export function LogoImage({ className }: LogoImageProps) {
+  return (
+    <img
+      src="/logo.jpg"
+      alt="Dehaadi"
+      width={40}
+      height={40}
+      className={`rounded-lg object-cover ${className ?? ""}`}
+    />
+  );
 }

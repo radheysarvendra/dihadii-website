@@ -5,7 +5,6 @@ import NotFound from '@/pages/not-found';
 import { Route, Switch, Router as WouterRouter } from 'wouter';
 import { Header } from '@/components/sections/Header';
 import { Hero } from '@/components/sections/Hero';
-import { TrustBar } from '@/components/sections/TrustBar';
 import { Services } from '@/components/sections/Services';
 import { HowItWorks } from '@/components/sections/HowItWorks';
 import { RoleSelector } from '@/components/sections/RoleSelector';
@@ -13,8 +12,10 @@ import { WhyTrustUs } from '@/components/sections/WhyTrustUs';
 import { Coverage } from '@/components/sections/Coverage';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { FAQ } from '@/components/sections/FAQ';
+import { ContactUs } from '@/components/sections/ContactUs';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Footer } from '@/components/sections/Footer';
+import ServiceCategoryPage from '@/pages/ServiceCategoryPage';
 
 const queryClient = new QueryClient();
 
@@ -24,7 +25,6 @@ function Home() {
       <Header />
       <main>
         <Hero />
-        <TrustBar />
         <Services />
         <HowItWorks />
         <RoleSelector />
@@ -32,6 +32,7 @@ function Home() {
         <Coverage />
         <Testimonials />
         <FAQ />
+        <ContactUs />
         <FinalCTA />
       </main>
       <Footer />
@@ -43,6 +44,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/services/:slug" component={ServiceCategoryPage} />
       <Route component={NotFound} />
     </Switch>
   );

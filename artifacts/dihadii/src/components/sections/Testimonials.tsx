@@ -8,7 +8,7 @@ import { SectionWrapper, SectionHeading } from "@/components/shared/SectionWrapp
 const testimonials = [
   {
     quote:
-      "Sample testimonial — replace with real user quote. Dihadii helped me find reliable masons for my home renovation at a fair daily rate.",
+      "Sample testimonial — replace with real user quote. Dehaadi helped me find reliable masons for my home renovation at a fair daily rate.",
     name: "Sample User A",
     location: "Gurugram, Haryana",
     rating: 5,
@@ -32,7 +32,7 @@ const testimonials = [
   },
   {
     quote:
-      "Sample testimonial — replace with real user quote. Finding farm labour during harvest season used to be a headache. Dihadii made it simple.",
+      "Sample testimonial — replace with real user quote. Finding farm labour during harvest season used to be a headache. Dehaadi made it simple.",
     name: "Sample User D",
     location: "Sonipat, Haryana",
     rating: 5,
@@ -59,7 +59,7 @@ export function Testimonials() {
       <SectionHeading
         title="What People Say"
         hindiTagline="लोग क्या कहते हैं"
-        subtitle="Hear from workers, contractors, and customers who use Dihadii."
+        subtitle="Hear from workers, contractors, and customers who use Dehaadi."
       />
 
       <div className="relative mx-auto max-w-3xl">

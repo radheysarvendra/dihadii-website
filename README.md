@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dihadii Website
 
-## Getting Started
+Modern marketing website for **Dihadii** ("Kaam Pe Chalo") — an on-demand platform connecting people to verified labour, mistri, and contractors.
 
-First, run the development server:
+## Quick Start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to preview.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Logo Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Add your logo files to the `public/` folder:
 
-## Learn More
+- `public/logo.png` — full-color logo for the header
+- `public/logo-white.png` — white/light logo for the footer
 
-To learn more about Next.js, take a look at the following resources:
+Until those files are added, placeholder SVGs (`logo.svg`, `logo-white.svg`) are included as fallbacks. Update `Header.tsx` and `Footer.tsx` image paths once your PNGs are ready.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Next.js 14+ (App Router) + TypeScript
+- Tailwind CSS v4
+- Framer Motion
+- shadcn/ui (Accordion, Button, Card)
+- Lucide React icons
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── app/              # Layout, page, global styles
+├── components/
+│   ├── sections/     # Page sections (Hero, Services, FAQ, etc.)
+│   ├── shared/       # Reusable wrappers (SectionWrapper, CountUp)
+│   └── ui/           # shadcn/ui components
+└── lib/              # Utilities and animation variants
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Customization
+
+All placeholder content is clearly marked in the source:
+
+- **Stats** — edit numbers in `WhyTrustUs.tsx` and `TrustBar.tsx`
+- **Cities** — update the `cities` array in `Coverage.tsx`
+- **Testimonials** — replace sample quotes in `Testimonials.tsx`
+- **Press logos** — replace placeholder names in `TrustBar.tsx`
+- **FAQ** — edit Q&A pairs in `FAQ.tsx`
+
+## Deploy
+
+Ready for Vercel deployment:
+
+```bash
+npm run build
+```
+
+## Brand Guidelines
+
+- Primary: `#1554F6` (royal blue)
+- Accent: `#F59E0B` (warm orange) — CTAs only
+- Background: `#F7F9FC`
+- Text: `#0B1730`
+- Tagline: "Right Worker, Right Price"
+- No speed/ETA claims anywhere on the site

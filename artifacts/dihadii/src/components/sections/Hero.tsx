@@ -1,15 +1,9 @@
 
 import { motion } from "framer-motion";
-import {
-  IndianRupee,
-} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import heroBackground from "@/assets/dehaadi-hero-construction-background.png";
-
-const trustBadges = [
-  { icon: IndianRupee, label: "Transparent Daily Rate" },
-];
+import heroGirl from "@/assets/dehaadi-hero-girl-no-bg.png";
 
 export function Hero() {
   return (
@@ -86,51 +80,28 @@ export function Hero() {
                 <a href="#final-cta">Request Access</a>
               </Button>
             </motion.div>
-
-            <motion.div
-              variants={fadeInUp}
-              className="mt-10 flex flex-wrap gap-6"
-            >
-              {trustBadges.map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-2">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10">
-                    <Icon className="h-4 w-4 text-brand-sky" />
-                  </div>
-                  <span className="text-sm font-medium text-white/90">
-                    {label}
-                  </span>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
 
-          {/* Right — existing Dehaadi representative image, blended into the background */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex justify-center lg:justify-end"
-          >
-            <div className="relative h-[380px] w-full max-w-[340px] sm:h-[440px]">
-              <div
-                className="absolute inset-0 rounded-full bg-brand-sky/20 blur-3xl"
-                aria-hidden
-              />
-              <img
-                src="/hero-mobile-preview.png"
-                alt="Dehaadi representative in branded workwear"
-                className="absolute inset-0 h-full w-full object-contain object-bottom"
-                style={{
-                  maskImage:
-                    "radial-gradient(ellipse 70% 85% at center 78%, black 62%, transparent 100%)",
-                  WebkitMaskImage:
-                    "radial-gradient(ellipse 70% 85% at center 78%, black 62%, transparent 100%)",
-                }}
-              />
-            </div>
-          </motion.div>
+          {/* Right column stays empty on lg+; the girl image is absolutely
+              positioned below so it can sit flush against the hero's bottom edge. */}
+          <div className="hidden lg:block" aria-hidden />
         </div>
       </div>
+
+      {/* Existing Dehaadi representative image — background removed, anchored
+          to the hero's bottom edge so it reads like it's standing in the scene. */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        className="relative z-10 mt-8 flex justify-center px-4 lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0 lg:justify-end lg:px-0 lg:pr-8 xl:pr-16"
+      >
+        <img
+          src={heroGirl}
+          alt="Dehaadi representative in branded workwear"
+          className="h-[420px] w-auto object-contain object-bottom lg:h-[560px] xl:h-[620px]"
+        />
+      </motion.div>
     </section>
   );
 }

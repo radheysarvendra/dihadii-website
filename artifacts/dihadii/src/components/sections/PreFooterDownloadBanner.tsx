@@ -31,7 +31,7 @@ export function PreFooterDownloadBanner() {
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-brand-navy px-6 py-12 sm:px-10 sm:py-14 md:px-16 md:py-16"
+        className="relative mx-auto max-w-7xl overflow-hidden bg-brand-navy px-6 py-12 sm:px-10 sm:py-14 md:px-16 md:py-16"
       >
         <div className="relative grid items-center gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           {/* Left — brand + copy */}

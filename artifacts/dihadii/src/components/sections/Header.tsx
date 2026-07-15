@@ -79,7 +79,12 @@ export function Header() {
                         href={`/services/${cat.slug}`}
                         className="flex items-center gap-2 rounded-lg px-2 py-2 text-sm font-medium text-brand-navy/80 transition-colors hover:bg-brand-blue/5 hover:text-brand-blue"
                       >
-                        <img src={cat.img} alt="" className="h-8 w-8 rounded-md object-cover" />
+                        <img
+                          src={cat.img}
+                          alt=""
+                          className="h-8 w-8 rounded-md object-cover"
+                          style={{ objectPosition: cat.imagePosition }}
+                        />
                         {cat.name}
                       </a>
                     ))}

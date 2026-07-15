@@ -3,6 +3,14 @@ export interface ServiceCategory {
   name: string;
   hindi: string;
   img: string;
+  /**
+   * object-position for `img`. Source photos are portrait (1122x1402) with the
+   * subject's head near the top of the frame. Every place this image is
+   * rendered (nav dropdown, service cards, category hero) crops it into a
+   * shorter box, so this value is tuned per photo to keep the face/head fully
+   * visible instead of relying on a single shared "center" crop.
+   */
+  imagePosition: string;
   description: string;
 }
 
@@ -12,6 +20,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Mason",
     hindi: "राजमिस्त्री",
     img: "/categories/mason.png",
+    imagePosition: "center 8%",
     description: "Skilled masons for construction, brickwork, plastering, and finishing work.",
   },
   {
@@ -19,6 +28,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Carpenter",
     hindi: "बढ़ई",
     img: "/categories/carpenter.png",
+    imagePosition: "center 8%",
     description: "Furniture making, wood fitting, repairs, and custom carpentry work.",
   },
   {
@@ -26,6 +36,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Painter",
     hindi: "पेंटर",
     img: "/categories/painter.png",
+    imagePosition: "center 12%",
     description: "Interior and exterior painting for homes, offices, and commercial spaces.",
   },
   {
@@ -33,6 +44,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Electrician",
     hindi: "इलेक्ट्रिशियन",
     img: "/categories/electrician.png",
+    imagePosition: "center 8%",
     description: "Wiring, repairs, installations, and electrical maintenance work.",
   },
   {
@@ -40,6 +52,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Plumber",
     hindi: "प्लंबर",
     img: "/categories/plumber.png",
+    imagePosition: "center 6%",
     description: "Pipe fitting, leak repairs, bathroom fittings, and plumbing installations.",
   },
   {
@@ -47,6 +60,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Housemaid",
     hindi: "घरेलू सहायिका",
     img: "/categories/housemaid.png",
+    imagePosition: "center 10%",
     description: "Trusted household help for cleaning, cooking, and daily home support.",
   },
   {
@@ -54,6 +68,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Cook/Helper",
     hindi: "रसोइया",
     img: "/categories/cook-helper.png",
+    imagePosition: "center 8%",
     description: "Home cooks and kitchen helpers for daily meals and events.",
   },
   {
@@ -61,6 +76,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Cleaner",
     hindi: "सफाई कर्मी",
     img: "/categories/cleaner.png",
+    imagePosition: "center 8%",
     description: "Deep cleaning, housekeeping, and sanitation services for homes and offices.",
   },
   {
@@ -68,6 +84,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Gardener",
     hindi: "माली",
     img: "/categories/gardener.png",
+    imagePosition: "center 6%",
     description: "Garden maintenance, landscaping, and plant care services.",
   },
   {
@@ -75,6 +92,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Caretaker",
     hindi: "देखभालकर्ता",
     img: "/categories/caretaker.png",
+    imagePosition: "center 14%",
     description: "Home and property caretakers for daily upkeep and housekeeping support.",
   },
   {
@@ -82,6 +100,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Delivery Boy",
     hindi: "डिलीवरी बॉय",
     img: "/categories/delivery-boy.png",
+    imagePosition: "center 6%",
     description: "Reliable delivery and logistics support for shops and businesses.",
   },
   {
@@ -89,6 +108,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Security Guard",
     hindi: "सुरक्षा गार्ड",
     img: "/categories/security-guard.png",
+    imagePosition: "center 8%",
     description: "Verified security personnel for homes, offices, and events.",
   },
   {
@@ -96,6 +116,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Farm Labourer",
     hindi: "खेत मजदूर",
     img: "/categories/farm-labourer.png",
+    imagePosition: "center 16%",
     description: "Farm labour for harvesting, irrigation, and seasonal agricultural work.",
   },
   {
@@ -103,6 +124,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Shop Helper",
     hindi: "दुकान सहायक",
     img: "/categories/shop-helper.png",
+    imagePosition: "center 8%",
     description: "Shop assistants, loaders, and retail support staff.",
   },
   {
@@ -110,6 +132,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Tailor",
     hindi: "दर्जी",
     img: "/categories/tailor.png",
+    imagePosition: "center 8%",
     description: "Custom stitching, alterations, and tailoring services.",
   },
   {
@@ -117,6 +140,7 @@ export const CATEGORIES: ServiceCategory[] = [
     name: "Hotel/Dhaba",
     hindi: "होटल मजदूर",
     img: "/categories/hotel-dhaba.png",
+    imagePosition: "center 8%",
     description: "Kitchen staff, waiters, and helpers for hotels, dhabas, and restaurants.",
   },
 ];

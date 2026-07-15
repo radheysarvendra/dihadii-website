@@ -23,7 +23,12 @@ export default function ServiceCategoryPage() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <div className="relative h-[360px] w-full sm:h-[440px]">
-            <img src={category.img} alt={category.name} className="h-full w-full object-cover" />
+            <img
+              src={category.img}
+              alt={category.name}
+              className="h-full w-full object-cover"
+              style={{ objectPosition: category.imagePosition }}
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-brand-navy/10" />
           </div>
 
@@ -91,7 +96,12 @@ export default function ServiceCategoryPage() {
                     className="group flex items-center justify-between gap-3 rounded-xl border border-brand-blue/10 bg-white px-4 py-3 transition-colors hover:border-brand-blue/30"
                   >
                     <span className="flex items-center gap-3">
-                      <img src={c.img} alt="" className="h-9 w-9 rounded-lg object-cover" />
+                      <img
+                        src={c.img}
+                        alt=""
+                        className="h-9 w-9 rounded-lg object-cover"
+                        style={{ objectPosition: c.imagePosition }}
+                      />
                       <span className="text-sm font-semibold text-brand-navy">{c.name}</span>
                     </span>
                     <ArrowRight className="h-4 w-4 text-brand-slate transition-transform group-hover:translate-x-0.5 group-hover:text-brand-blue" />

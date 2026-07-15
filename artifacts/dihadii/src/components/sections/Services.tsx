@@ -54,6 +54,7 @@ export function Services() {
                     src={cat.img}
                     alt={cat.name}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    style={{ objectPosition: cat.imagePosition }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
 

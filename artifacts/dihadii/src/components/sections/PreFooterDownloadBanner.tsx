@@ -11,7 +11,7 @@ export function PreFooterDownloadBanner() {
   const preview = AUDIENCE_PREVIEW.labour;
 
   return (
-    <section className="bg-white px-4 pb-20 pt-4 sm:px-6 lg:px-8 md:pb-28">
+    <section id="final-cta" className="bg-white px-4 pb-20 pt-4 sm:px-6 lg:px-8 md:pb-28 scroll-mt-24">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -44,7 +44,7 @@ export function PreFooterDownloadBanner() {
                 {APP_DOWNLOAD.androidUrl ? (
                   <a href={APP_DOWNLOAD.androidUrl}>Download for Android</a>
                 ) : (
-                  <a href="#final-cta">Download for Android</a>
+                  <a href="#prefooter-qr">Download for Android</a>
                 )}
               </Button>
               <Button

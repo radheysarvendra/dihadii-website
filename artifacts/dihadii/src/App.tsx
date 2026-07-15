@@ -14,6 +14,8 @@ import { Testimonials } from '@/components/sections/Testimonials';
 import { FAQ } from '@/components/sections/FAQ';
 import { ContactUs } from '@/components/sections/ContactUs';
 import { FinalCTA } from '@/components/sections/FinalCTA';
+import { AppFeatureShowcase } from '@/components/sections/AppFeatureShowcase';
+import { PreFooterDownloadBanner } from '@/components/sections/PreFooterDownloadBanner';
 import { Footer } from '@/components/sections/Footer';
 import ServiceCategoryPage from '@/pages/ServiceCategoryPage';
 
@@ -34,6 +36,8 @@ function Home() {
         <FAQ />
         <ContactUs />
         <FinalCTA />
+        <AppFeatureShowcase />
+        <PreFooterDownloadBanner />
       </main>
       <Footer />
     </>

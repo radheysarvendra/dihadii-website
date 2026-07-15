@@ -1,0 +1,218 @@
+Role: Senior frontend engineer + UI/UX designer.
+
+Task: Add two new sections to the existing Dehaadi website (Replit project) —
+an App Features Showcase and a separate Pre-Footer Download Banner.
+Do NOT rebuild the site. First inspect the current Download App section,
+footer, screenshots, components, data files, styling system, and breakpoints.
+Reuse the existing framework, icon library, and design system.
+
+Reference images = layout inspiration ONLY. Do not copy their food-delivery
+content, colours, illustrations, wording, or exact layout. Build original,
+Dehaadi-specific sections that visibly differ from the references and from
+each other.
+
+════════════════════════════════════════
+PART 1 — APP FEATURES SHOWCASE
+════════════════════════════════════════
+Place near the existing Download App / product-promotion area.
+
+Copy:
+- Label: DEHAADI APP FEATURES
+- Heading: "Everything You Need to Find Work or Hire Help"
+- Subtext: "Explore practical features designed for labourers, contractors,
+  employers, and customers to connect, manage work requirements, and
+  communicate more easily."
+
+CENTRAL PHONE PREVIEW
+- Use a real Dehaadi app screenshot (user-provided, not external/reference).
+- Preserve aspect ratio, object-fit: contain, sharp/readable.
+- Pick a screen that represents the core experience (home, role-selection,
+  worker search, work-request, or dashboard) — not just "colourful."
+- Meaningful alt text; use existing image-optimization component if available.
+
+FEATURE CARDS (6–8, around the phone)
+Each card: icon/mini-screenshot + short title + optional one-liner, consistent
+rounded styling. Represent app FUNCTIONS, not job-title categories already on
+the site menu.
+
+Use this feature set:
+1. Choose Your Role — Labour, customer, or contractor onboarding
+2. Select Your Skills — Choose trade/work category
+3. Find Nearby Work — Location-relevant opportunities
+4. Request a Worker — Submit a labour/service requirement
+5. Manage Work Requests — View/track submitted requests
+6. Contractor Dashboard — Manage projects, workforce, requirements
+7. Location-Based Matching — Match requirements to workers by area
+8. Profile and Work Details — Skills, experience, availability, profile info
+
+Exclude: "Transparent Daily Rate."
+Do not claim: verified workers, background-checked, guaranteed jobs, instant
+hiring, fixed rates — unless genuinely implemented.
+
+AUDIENCE DIFFERENTIATION
+Add tabs/segmented control: For Labourers / For Customers / For Contractors.
+Selecting a tab updates the feature cards (and phone screenshot where
+suitable) via component state — no page reload.
+
+- Labourers: Create Profile · Choose Skills · Find Nearby Work ·
+  Update Availability · View Work Requests · Manage Work Details
+- Customers: Select Service Category · Submit Work Requirement ·
+  Add Work Location · Review Request Details · Contact Worker/Contractor ·
+  Track Request Status
+- Contractors: Create Contractor Profile · Manage Project Requirements ·
+  Find Labour Teams · Review Work Requests · Coordinate Workforce ·
+  Manage Project Activity
+
+Technical: use ARIA tab roles, full keyboard accessibility, no reload.
+If a full tabbed interaction is overkill for the current design, use three
+clearly separated mini-groups instead — but never three duplicated-looking
+sections.
+
+DATA ARCHITECTURE
+Centralize feature content in config, matching existing project conventions:
+
+type AppFeature = {
+  id: string;
+  audience: "labour" | "customer" | "contractor";
+  title: string;
+  description: string;
+  icon?: React.ComponentType;
+  image?: string;
+  imageAlt?: string;
+};
+
+export const APP_FEATURES: AppFeature[] = [
+  {
+    id: "labour-profile",
+    audience: "labour",
+    title: "Create Your Profile",
+    description: "Add your skills, experience, availability, and work details.",
+    image: labourProfileScreen,
+    imageAlt: "Labour profile setup in the Dehaadi app",
+  },
+];
+
+VISUAL STYLE
+Soft blue/blue-grey background, navy text, white cards, subtle shadows,
+rounded corners, clean icons, balanced spacing. No pink background, no food
+illustrations.
+
+Responsive:
+- Desktop: centred heading, phone in middle, cards flanking both sides, no overlap
+- Tablet: fewer cards around phone; overflow into a grid below if needed
+- Mobile: stack heading → subtext → tabs → phone → cards; cards in 2-col grid
+  or swipeable row; no horizontal overflow; no tiny unreadable floating cards
+
+════════════════════════════════════════
+PART 2 — PRE-FOOTER DOWNLOAD BANNER
+════════════════════════════════════════
+New section directly above the existing footer. Must NOT duplicate or replace
+the feature showcase — visually and structurally distinct.
+Second reference image = layout inspiration only.
+
+Copy:
+- Label: DEHAADI FOR ANDROID
+- Heading: "Find Work. Hire Help. Get Started with Dehaadi."
+- Subtext: "Download the Dehaadi Android app to explore work opportunities,
+  submit labour requirements, and connect with workers or contractors in
+  your area."
+- Primary CTA: Download for Android
+- Secondary CTA: Scan to Download
+
+No iOS/App Store mentions. No fake download counts, ratings, or availability claims.
+
+LAYOUT (desktop)
+- Left: logo/brand mark, heading, subtext, Android CTA, optional line
+  ("Available for Android devices")
+- Right: phone mockup with real Dehaadi screenshot + QR code
+
+DESIGN
+Wide horizontal banner, dark navy/deep-blue background, white text, existing
+brand accent colour for CTA, rounded outer container, generous spacing,
+visually distinct from footer. Minimal decorative icons only (helmet, tools,
+location pin, briefcase, building outline, worker icon) — no food imagery,
+don't overcrowd.
+
+QR CODE
+- Must point to the same Android URL as the CTA button.
+- Store URL centrally: 
+  export const APP_DOWNLOAD = { androidUrl: "", platformLabel: "Available on Android" };
+- Generate via existing project capability; do not hardcode URL in multiple places.
+- Accessible label: "Scan to download the Dehaadi app."
+- Test before finalizing.
+- If URL isn't available yet: do NOT fake a QR code — show a labelled
+  placeholder ("QR code will be available after the Play Store link is
+  added"), keep layout ready, and report the missing URL.
+
+RESPONSIVE
+- Tablet: keep two columns where space allows; scale phone proportionally; QR stays readable
+- Mobile: stack vertically, centre content, full-width/appropriately sized CTA,
+  QR below CTA and still scannable, no horizontal overflow, proper spacing before footer
+
+FOOTER SEPARATION
+No footer nav links inside the banner. Don't remove existing footer content.
+Clear spacing and distinct backgrounds between banner and footer. Preserve
+existing social links/behavior.
+
+════════════════════════════════════════
+CONTENT ACCURACY (applies to both sections)
+════════════════════════════════════════
+Before writing final copy: inspect real app screens/flows, confirm actual
+capabilities per user type, and match cards to real functionality.
+
+Do NOT invent: worker verification, instant matching, confirmed employment,
+fixed daily rates, guaranteed response/availability, online payments,
+ratings, chat, live tracking. Planned-but-unshipped features must not be
+presented as live.
+
+════════════════════════════════════════
+TECHNICAL REQUIREMENTS
+════════════════════════════════════════
+Reusable components (don't over-fragment if project is small):
+AppFeatureShowcase · AudienceTabs · AppFeatureCard · PhonePreview ·
+PreFooterDownloadBanner · DownloadQrCode
+
+- Content lives in config files
+- Semantic HTML, meaningful alt text, visible keyboard focus states
+- Keyboard-accessible tabs, no large layout shifts
+- Responsive image sizes; no external image URLs; only user-provided/existing assets
+- Remove unused imports/styles; no unnecessary new dependencies
+
+════════════════════════════════════════
+PRE-EDIT REPORT (before touching code)
+════════════════════════════════════════
+- Existing Download App component
+- Existing footer component
+- Available Dehaadi screenshots found
+- Actual app features identified per user type
+- Whether a real Android URL exists
+- Whether a QR code can be generated
+
+════════════════════════════════════════
+FINAL VERIFICATION CHECKLIST
+════════════════════════════════════════
+[ ] Feature section visibly differs from reference; no food-delivery content
+[ ] All feature cards reflect real functionality, grouped correctly by audience
+[ ] Central phone uses a real Dehaadi screenshot, not stretched
+[ ] No unsupported claims; "Transparent Daily Rate" excluded
+[ ] Desktop card placement balanced; tablet readable; mobile no overlap/overflow
+[ ] Download banner sits directly above footer, visually separate from it
+[ ] Banner is Android-only wording, no iOS/App Store content
+[ ] CTA and QR code use the same central config URL
+[ ] No fake QR code shown if URL missing
+[ ] QR code scannable on desktop and mobile
+[ ] Existing footer links/social icons still work
+[ ] No horizontal overflow anywhere
+[ ] No unused code; lint passes; TypeScript passes (if configured); build succeeds
+
+════════════════════════════════════════
+POST-COMPLETION REPORT
+════════════════════════════════════════
+- Files modified
+- Components created/updated
+- Feature cards added per audience
+- Central phone screenshot used
+- Pre-footer banner implementation summary
+- Android URL used / QR code status
+- Responsive + accessibility verification
+- Lint / TypeScript / production build results

@@ -1,0 +1,437 @@
+MASON
+
+Cover:
+
+brickwork
+plastering
+wall repair
+floor-base work
+boundary walls
+cement and mortar preparation
+small construction work
+repair and renovation support
+daily-wage and project-based work
+
+Clearly exclude where relevant:
+
+structural engineering approval
+architectural design
+raw materials
+electrical work
+plumbing work
+large machinery
+demolition permission
+scaffolding unless separately arranged
+
+Add safety notes for:
+
+cement handling
+heavy materials
+work at height
+structural changes
+CARPENTER
+
+Cover:
+
+furniture repair
+furniture assembly
+door adjustment
+window fitting
+shelves
+wooden frames
+hinges, locks, and handles
+custom wooden work
+measurement and fitting
+
+Clearly explain:
+
+wood, plywood, laminate, polish, hardware, and transport may be separate
+factory-manufactured furniture is not automatically included
+electrical and civil work are separate
+PAINTER
+
+Cover:
+
+wall painting
+putty support
+primer application
+touch-up work
+doors and windows
+interior and exterior work
+surface preparation
+repainting
+
+Clearly explain:
+
+paint and materials may be separate
+waterproofing may require separate assessment
+furniture shifting and deep cleaning may not be included
+scaffolding may cost extra
+
+Add preparation and safety notes for:
+
+room clearance
+ventilation
+ladders
+chemicals
+drying time
+ELECTRICIAN
+
+Cover:
+
+switches and sockets
+lights and fans
+basic wiring faults
+MCB inspection
+loose connections
+fixture installation
+basic electrical troubleshooting
+
+Clearly exclude:
+
+high-voltage work
+utility-meter work
+unauthorized electrical connections
+complete rewiring without inspection
+replacement parts
+civil repair after concealed wiring
+
+Add strong safety guidance.
+
+PLUMBER
+
+Cover:
+
+tap replacement
+leakage repair
+sink and basin fitting
+flush repair
+pipe-joint checking
+customer-provided fixture installation
+minor drainage issues
+
+Clearly exclude:
+
+septic-tank cleaning
+municipal pipeline work
+industrial drain machines
+underground pipeline excavation without inspection
+replacement fixtures and materials
+wall or tile restoration
+HOUSEMAID
+
+Cover:
+
+sweeping
+mopping
+utensil cleaning
+basic household support
+room cleaning
+laundry support when agreed
+part-time and monthly arrangements
+
+Clearly explain that duties such as:
+
+cooking
+childcare
+elderly care
+pet care
+deep cleaning
+bathroom scrubbing
+ironing
+
+must be agreed separately.
+
+Include:
+
+attendance expectations
+leave rules
+shift timing
+household privacy
+key/access responsibility
+monthly wage clarification
+
+Do not claim background verification unless implemented.
+
+COOK/HELPER
+
+Cover:
+
+basic meal preparation
+vegetable cutting
+kitchen assistance
+utensil support
+ingredient preparation
+serving support
+daily or monthly work
+
+Clarify:
+
+menu
+number of people
+meal timings
+vegetarian/non-vegetarian preference
+cleaning responsibilities
+grocery purchasing
+special diet requirements
+
+Add food hygiene and kitchen-safety guidance.
+
+CLEANER
+
+Cover:
+
+floor cleaning
+surface cleaning
+dusting
+basic bathroom cleaning
+workspace cleaning
+shop cleaning
+residential and commercial cleaning
+
+Clearly separate:
+
+regular cleaning
+deep cleaning
+post-construction cleaning
+pest control
+sewage cleaning
+hazardous waste
+chemical stain removal
+exterior high-rise cleaning
+
+Clarify who provides cleaning products and equipment.
+
+GARDENER
+
+Cover:
+
+watering
+pruning
+weeding
+soil preparation
+planting
+lawn maintenance
+garden cleanup
+basic plant care
+
+Clearly exclude unless separately arranged:
+
+landscaping design
+large tree cutting
+pesticide treatment
+irrigation installation
+heavy machinery
+transport of plants and soil
+
+Add safety guidance for sharp tools, ladders, and chemicals.
+
+CARETAKER
+
+Cover:
+
+general supervision
+property monitoring
+basic daily assistance
+elderly support where agreed
+attendance and routine assistance
+reporting issues to the owner
+residential or commercial caretaker duties
+
+Clearly state that:
+
+medical care
+nursing
+medicine administration
+financial responsibility
+legal guardianship
+security services
+childcare
+
+are not automatically included unless specifically agreed and appropriately qualified.
+
+Use responsible and non-medical wording.
+
+DELIVERY BOY
+
+Cover:
+
+pickup and delivery
+route-based work
+customer communication
+proof of delivery
+handling assigned parcels
+local delivery shifts
+shop and restaurant delivery support
+
+Clarify:
+
+vehicle ownership
+driving licence
+fuel expense
+mobile phone
+data cost
+delivery area
+cash handling
+damaged or lost parcels
+shift and incentive structure
+
+Add road-safety guidance.
+
+SECURITY GUARD
+
+Cover:
+
+entry monitoring
+visitor logs
+gate duty
+basic patrolling
+shift handover
+property observation
+reporting unusual activity
+residential and commercial security support
+
+Clearly exclude:
+
+armed security
+police duties
+physical confrontation
+investigation
+CCTV installation
+legal enforcement
+cash transport
+
+Clarify:
+
+day/night shift
+uniform
+accommodation
+duty register
+emergency contacts
+workplace instructions
+FARM LABOURER
+
+Cover:
+
+sowing
+transplanting
+weeding
+harvesting
+loading produce
+irrigation support
+sorting
+seasonal farm work
+animal-feed support where agreed
+
+Clarify:
+
+pesticides
+machinery
+tractor driving
+chemical spraying
+accommodation
+food
+transportation
+seasonal shift timing
+per-day or task-based payment
+
+Add safety notes for:
+
+heat
+machinery
+chemicals
+sharp tools
+heavy lifting
+SHOP HELPER
+
+Cover:
+
+shelf arrangement
+basic packing
+stock movement
+customer assistance
+shop cleaning
+loading and unloading
+opening and closing support
+simple inventory assistance
+
+Clearly explain:
+
+cash-counter responsibility
+billing
+financial records
+stock loss
+delivery work
+overtime
+festival shifts
+
+must be agreed separately.
+
+TAILOR
+
+Cover:
+
+stitching
+alterations
+measurements
+repairs
+hemming
+button and zip replacement
+simple garment fitting
+shop-based or production support
+
+Clarify:
+
+fabric
+lining
+buttons
+zips
+embroidery
+special designs
+bulk production
+urgent delivery
+
+may have separate charges or requirements.
+
+Use per-garment, daily-wage, or monthly employment models where relevant.
+
+HOTEL/DHABA WORKER
+
+Cover:
+
+kitchen assistance
+table service
+utensil cleaning
+food preparation support
+cleaning
+packing
+order handling
+loading supplies
+shift-based hospitality work
+
+Clarify the exact role:
+
+cook
+kitchen helper
+waiter
+cleaner
+dishwashing worker
+counter assistant
+
+These duties must not be combined automatically without agreement.
+
+Include:
+
+shift timing
+food and accommodation
+night shifts
+weekly leave
+hygiene rules
+uniform
+customer interaction
+overtime
+role responsibilities
+==================================================
+CONTENT DIFFERENTIATION RULES
+
+Every category mus

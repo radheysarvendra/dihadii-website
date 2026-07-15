@@ -1,0 +1,112 @@
+Role: Senior frontend engineer.
+
+Task: Fix cropped images on the Dehaadi homepage in the 4 category cards
+("I am a Labour", "I need a Labour", "I am a Contractor", "I need a Contractor").
+Do NOT rebuild the site — reuse existing architecture.
+
+STEP 1 — Inspect first
+- Locate the shared category-card component and its data/config file.
+- Identify current image wrapper styles, object-fit, object-position, and aspect ratio.
+- Identify the styling system in use (Tailwind / CSS Modules / styled-components / CSS).
+
+STEP 2 — Fix images (single reusable component, config-driven)
+Do not fork into 4 components. Extend the existing card config with per-card
+image controls, e.g.:
+
+export const USER_CATEGORY_CARDS = [
+  {
+    id: "labour",
+    title: "I am a Labour",
+    description: "Find daily-wage and skilled work near you. Showcase your skills and connect with suitable work opportunities.",
+    image: CATEGORY_IMAGES.labourImage,
+    imageAlt: "Dehaadi labourer looking for daily-wage and skilled work",
+    imageFit: "cover",
+    imagePosition: "center 18%", // inspect actual image, set real focal point
+    actionLabel: "Get Started",
+    actionUrl: "existing-route",
+  },
+  // ...same shape for need-labour, contractor, need-contractor
+];
+
+Per image, choose imageFit/imagePosition (or aspect-ratio/container height) so that:
+- full face + head are visible (not cut from top)
+- shoulders/upper body visible where possible
+- Dehaadi logo stays visible where present
+- key work-related background isn't unnecessarily cropped
+- no stretching/distortion
+
+If `cover` still crops critical content, prefer (in order): adjust aspect-ratio →
+taller container → per-card object-position → `contain` + branded background →
+safe internal padding.
+Forbidden: negative margins, transform: scale zoom hacks, one shared crop
+position for all cards, oversized fixed heights, external image URLs.
+
+Image container (adapt to existing styling system):
+.user-category-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #eef4ff;
+}
+.user-category-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: var(--category-image-fit, cover);
+  object-position: var(--category-image-position, center);
+}
+
+STEP 3 — Title overlay
+Keep title on-image only if legible:
+.user-category-card__image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(to bottom, transparent, rgba(6,20,48,0.78));
+  pointer-events: none;
+}
+- white, readable title text
+- never over the face
+- consistent position across all 4 cards
+- don't darken the whole image
+
+STEP 4 — Equal card layout
+.user-category-card { display: flex; flex-direction: column; height: 100%; }
+.user-category-card__content { display: flex; flex: 1; flex-direction: column; }
+.user-category-card__action { margin-top: auto; }
+Ensure: equal width/height, consistent image height, consistent description
+spacing, "Get Started" bottom-aligned, no layout shift from text length.
+
+STEP 5 — Copy audit
+Remove unsupported claims ("verified workers", "verified reviews",
+"transparent pricing") unless actually implemented. Use accurate wording per
+the description examples above.
+
+STEP 6 — Responsive
+- Desktop: 4 cards/row (space permitting), faces/logos clearly visible, equal dims
+- Tablet: 2 cards/row, crop/alignment preserved
+- Mobile: 1/row (or existing safe horizontal layout), enough image height to
+  keep person visible, no title clipping, no horizontal overflow
+
+STEP 7 — Constraints
+- Only touch these 4 cards — no changes to routes, APIs, forms, or unrelated content
+- Preserve all existing click behavior/routes
+- Meaningful alt text per image; use existing responsive image optimization if present
+- Preserve resolution; don't upscale; add safe fallback background on load failure
+- Remove now-unused imports/vars/classes/config
+
+STEP 8 — Verify before done
+[ ] all faces visible, no head cropped, no stretching, logos visible
+[ ] titles readable, consistent position
+[ ] equal card height, "Get Started" aligned
+[ ] desktop / tablet / mobile layouts correct, no horizontal overflow
+[ ] all routes still work, correct images used, no unsupported claims
+[ ] lint passes / TypeScript passes (if configured) / production build succeeds
+
+DELIVERABLE — Report back:
+- files modified
+- component + config updated
+- final imageFit + imagePosition per card
+- text corrections made
+- responsive verification result
+- lint / TypeScript / build results

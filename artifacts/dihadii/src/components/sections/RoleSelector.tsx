@@ -1,52 +1,8 @@
-
 import { motion } from "framer-motion";
-import {
-  HardHat,
-  Search,
-  Building2,
-  UserSearch,
-  ArrowRight,
-  UserCircle,
-  ListChecks,
-  IndianRupee,
-  Smartphone,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SectionWrapper, SectionHeading } from "@/components/shared/SectionWrapper";
 import { staggerContainer, fadeInUp } from "@/lib/animations";
-
-const roles = [
-  {
-    icon: HardHat,
-    title: "I am a Labour",
-    description: "Find daily-wage and skilled work near you. Set your rate, showcase skills, get hired.",
-    href: "#final-cta",
-  },
-  {
-    icon: Search,
-    title: "I need a Labour",
-    description: "Hire verified workers for construction, farming, factory, and more at fair daily rates.",
-    href: "#final-cta",
-  },
-  {
-    icon: Building2,
-    title: "I am a Contractor",
-    description: "Manage projects, hire teams, and connect with clients directly on the platform.",
-    href: "#final-cta",
-  },
-  {
-    icon: UserSearch,
-    title: "I need a Contractor",
-    description: "Find reliable contractors for your projects with transparent pricing and verified reviews.",
-    href: "#final-cta",
-  },
-];
-
-const features = [
-  { icon: UserCircle, label: "Easy Profile Setup" },
-  { icon: ListChecks, label: "Skill Selection" },
-  { icon: IndianRupee, label: "Clear Daily Rate" },
-  { icon: Smartphone, label: "Simple App Flow" },
-];
+import { USER_CATEGORY_CARDS } from "@/data/roles";
 
 export function RoleSelector() {
   return (
@@ -64,45 +20,48 @@ export function RoleSelector() {
         viewport={{ once: true, margin: "-60px" }}
         className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
       >
-        {roles.map((role) => (
-          <motion.div key={role.title} variants={fadeInUp}>
+        {USER_CATEGORY_CARDS.map((card) => (
+          <motion.div key={card.id} variants={fadeInUp} className="h-full">
             <a
-              href={role.href}
-              className="group flex h-full flex-col rounded-2xl border border-brand-blue/8 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/20 hover:shadow-lg hover:shadow-brand-blue/10"
+              href={card.actionUrl}
+              className="user-category-card group flex h-full flex-col overflow-hidden rounded-2xl border border-brand-blue/8 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/20 hover:shadow-lg hover:shadow-brand-blue/10"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue/10 transition-colors group-hover:bg-brand-blue">
-                <role.icon className="h-6 w-6 text-brand-blue transition-colors group-hover:text-white" />
+              <div
+                className="user-category-card__image-wrapper relative w-full overflow-hidden bg-[#eef4ff]"
+                style={{ aspectRatio: "4 / 5" }}
+              >
+                <img
+                  src={card.image}
+                  alt={card.imageAlt}
+                  loading="lazy"
+                  className="user-category-card__image h-full w-full transition-transform duration-500 group-hover:scale-105"
+                  style={{ objectFit: card.imageFit, objectPosition: card.imagePosition }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+                <div
+                  className="pointer-events-none absolute inset-x-0 bottom-0"
+                  style={{
+                    top: "45%",
+                    background: "linear-gradient(to bottom, transparent, rgba(6,20,48,0.78))",
+                  }}
+                />
+                <div className="absolute inset-x-0 bottom-0 p-4">
+                  <h3 className="text-lg font-bold text-white">{card.title}</h3>
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-brand-navy">{role.title}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-brand-slate">
-                {role.description}
-              </p>
-              <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-brand-blue">
-                Get Started
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+
+              <div className="user-category-card__content flex flex-1 flex-col p-6">
+                <p className="flex-1 text-sm leading-relaxed text-brand-slate">
+                  {card.description}
+                </p>
+                <div className="user-category-card__action mt-4 flex items-center gap-1 text-sm font-semibold text-brand-blue">
+                  {card.actionLabel}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
               </div>
             </a>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4"
-      >
-        {features.map((feature) => (
-          <motion.div
-            key={feature.label}
-            variants={fadeInUp}
-            className="flex flex-col items-center gap-3 text-center"
-          >
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-blue/10">
-              <feature.icon className="h-5 w-5 text-brand-blue" />
-            </div>
-            <span className="text-sm font-semibold text-brand-navy">{feature.label}</span>
           </motion.div>
         ))}
       </motion.div>

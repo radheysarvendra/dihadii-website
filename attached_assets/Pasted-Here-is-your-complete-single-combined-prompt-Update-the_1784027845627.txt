@@ -1,0 +1,464 @@
+Here is your complete single combined prompt:
+
+---
+
+> Update the existing website codebase without rebuilding the project or changing the current design system. First inspect the existing components, routes, styling approach, asset structure, and responsive breakpoints. Reuse the current architecture and modify only the required sections.
+>
+> **IMPORTANT RULES:**
+> - Do not replace the entire page
+> - Do not modify unrelated sections, routes, APIs, forms, or business logic
+> - Preserve the existing colors, typography, spacing, shadows, borders, animations, and responsive behaviour
+> - Use the project's existing framework, icon library, CSS approach, and component conventions
+> - Remove unwanted content from source code — do not hide with CSS
+> - Remove all unused imports, styles, data entries, icons, and dead code
+> - Do not use `href="#"`, fake handlers, or simulated API responses
+> - Keep the implementation reusable, clean, and production-ready
+> - After all changes, run lint, TypeScript checks, and production build
+> - Fix all errors introduced by these updates
+> - Before editing, briefly identify the components, data files, assets, and routes that will be modified
+>
+> ---
+>
+> ## 1. Download App Section
+>
+> - Remove every reference to iOS from the Download App section
+> - Replace "Available on iOS & Android" with "Available on Android"
+> - Keep only the Android or Google Play-related icon or visual
+> - Preserve the existing button design, shadow, alignment, typography, hover state, and responsive layout
+>
+> ---
+>
+> ## 2. FAQ Section
+>
+> Completely remove this FAQ question and its complete answer:
+>
+> "Can businesses hire multiple workers through Dehaadi?"
+>
+> Requirements:
+> - Remove it from the FAQ data source
+> - Do not hide it using CSS
+> - Ensure no empty wrapper, unnecessary divider, numbering issue, or spacing gap remains
+> - Do not modify the other FAQ questions or answers
+>
+> ---
+>
+> ## 3. Remove Aadhaar Verification Feature Card
+>
+> Completely remove the feature card titled:
+>
+> "Aadhaar & Background Verified"
+>
+> Also remove:
+> - Its shield icon
+> - Its description
+> - Its configuration or data entry
+> - Related imports and section-specific styles
+>
+> Do not hide the card using CSS.
+>
+> After removing it:
+> - Recalculate the feature grid
+> - Ensure no empty column or blank space remains
+> - Keep the remaining cards evenly aligned on desktop, tablet, and mobile
+>
+> ---
+>
+> ## 4. Remove Simple Feature Row
+>
+> Completely remove the section containing:
+> - Easy Profile Setup
+> - Skill Selection
+> - Clear Daily Rate
+> - Simple App Flow
+>
+> Remove:
+> - The entire parent section
+> - All four icons, titles, wrappers, and grids
+> - Data objects, imports, and styles
+> - Fixed heights, minimum heights, margins, padding, and spacer elements
+>
+> Do not hide this section using CSS.
+>
+> After removal:
+> - Eliminate the large blank white space
+> - Ensure the previous and next sections connect naturally
+> - Verify that no empty container remains
+>
+> ---
+>
+> ## 5. Terms and Conditions
+>
+> Add a new subsection to the existing Terms and Conditions page.
+>
+> Heading: "Worker Verification and Hirer Responsibility"
+>
+> Use this content exactly:
+>
+> "I/We hereby declare that if any labourer, worker, employee, agent, contractor, or any other person is hired, engaged, or appointed through this application/platform, the responsibility to verify such person's identity, qualifications, experience, character, competence, and suitability shall rest solely upon the person engaging or hiring such individual. The owner, administrator, or operator of this platform/application shall not be responsible or liable for any act, omission, misconduct, negligence, fraud, dispute, loss, damage, or consequences arising out of such engagement. The entire responsibility and liability shall be borne exclusively by the hirer/employer."
+>
+> Requirements:
+> - Use semantic HTML
+> - Preserve the existing Terms and Conditions content
+> - Match the existing typography and spacing
+> - Add a stable section ID: `worker-verification-responsibility`
+>
+> Add a mandatory checkbox to:
+> - User registration forms
+> - Labour hiring forms
+> - Contractor hiring forms
+> - Any request submission form where a user hires or engages someone
+>
+> Checkbox label:
+>
+> "I have read and agree to the Terms and Conditions, including the Worker Verification and Hirer Responsibility declaration."
+>
+> Validation:
+> - The form must not submit until the checkbox is selected
+> - Use form-level validation, not only visual disabling
+> - Show a clear inline validation error
+> - Add a clickable link to the Terms and Conditions page
+> - Preserve the existing form submission and API logic
+>
+> ---
+>
+> ## 6. Footer Social Media Links
+>
+> Add social media icons for Instagram, YouTube, Facebook, and LinkedIn.
+>
+> Use this Instagram URL:
+> `https://www.instagram.com/dihadiiofficial?igsh=NTQwNDVhcDRsNjdv`
+>
+> Instagram requirements:
+> - Open in a new browser tab
+> - Use `target="_blank"` and `rel="noopener noreferrer"`
+> - Add proper `aria-label` and `title`
+> - Add hover, focus-visible, and keyboard states
+>
+> Create or update a central configuration file:
+>
+> ```ts
+> export const SOCIAL_LINKS = {
+>   instagram: "https://www.instagram.com/dihadiiofficial?igsh=NTQwNDVhcDRsNjdv",
+>   youtube: "",
+>   facebook: "",
+>   linkedin: "",
+> };
+> ```
+>
+> Requirements:
+> - Instagram must be active and clickable
+> - Keep YouTube, Facebook, and LinkedIn ready for future URLs
+> - If a URL is empty, hide the icon or display it as disabled and non-clickable
+> - Never use `href="#"`
+> - Use the project's existing icon library
+> - Do not add a new icon dependency unless necessary
+> - URLs must be updateable without editing the footer component
+>
+> ---
+>
+> ## 8. User Category Cards With Images
+>
+> Update these four category cards:
+> 1. I am a Labour
+> 2. I need a Labour
+> 3. I am a Contractor
+> 4. I need a Contractor
+>
+> I am uploading new images for each card
+>
+> Create clearly named image configuration keys:
+>
+> ```ts
+> export const CATEGORY_IMAGES = {
+>   labourImage: "",
+>   needLabourImage: "",
+>   contractorImage: "",
+>   needContractorImage: "",
+> };
+> ```
+>
+> Use structured category data:
+>
+> ```ts
+> {
+>   id: "labour",
+>   title: "I am a Labour",
+>   description: "...",
+>   image: CATEGORY_IMAGES.labourImage,
+>   imageAlt: "Labourer looking for daily-wage and skilled work",
+>   actionLabel: "Get Started",
+>   actionUrl: "existing route"
+> }
+> ```
+>
+> Card layout:
+> - Display the image prominently at the top
+> - Place the title below the image
+> - Place the description below the title
+> - Keep the existing "Get Started" action at the bottom
+> - Preserve each existing route and click behaviour text will be above layer of the image wtih gradient shade background.
+>
+> Image requirements:
+> - Use the actual user-provided image assets
+> - Use a consistent aspect ratio
+> - Use `object-fit: cover`
+> - Prevent distortion
+> - Add meaningful alt text
+> - Apply consistent border radius
+> - Add a safe fallback if an image is temporarily missing
+> - Do not let missing images break the layout
+>
+> Responsive layout:
+> - Desktop: four cards in one row when space allows
+> - Tablet: two cards per row
+> - Mobile: one card per row
+> - Keep cards equal in visual height
+> - Align the "Get Started" action consistently near the bottom
+>
+> ---
+>
+> ## 9. Labour Across India Section
+>
+> Keep the section heading: "Labour Across India"
+>
+> Replace the existing city list completely. Remove all cities not listed below including Mumbai, Hyderabad, Jaipur, Bangalore, and any other existing city not explicitly allowed.
+>
+> Display only these locations:
+>
+> ```ts
+> export const SERVICE_LOCATIONS = [
+>   { id: "gorakhpur",  name: "Gorakhpur",  image: gorakhpurImage,  imageAlt: "Gorakhpur service location",  status: "Launching Soon" },
+>   { id: "lucknow",    name: "Lucknow",    image: lucknowImage,    imageAlt: "Lucknow service location",    status: "Coming Soon" },
+>   { id: "varanasi",   name: "Varanasi",   image: varanasiImage,   imageAlt: "Varanasi service location",   status: "Coming Soon" },
+>   { id: "allahabad",  name: "Allahabad",  image: allahabadImage,  imageAlt: "Allahabad service location",  status: "Coming Soon" },
+>   { id: "kanpur",     name: "Kanpur",     image: kanpurImage,     imageAlt: "Kanpur service location",     status: "Coming Soon" },
+>   { id: "ayodhya",    name: "Ayodhya",    image: ayodhyaImage,    imageAlt: "Ayodhya service location",    status: "Coming Soon" },
+>   { id: "rewa",       name: "Rewa",       image: rewaImage,       imageAlt: "Rewa service location",       status: "Coming Soon" },
+>   { id: "bhopal",     name: "Bhopal",     image: bhopalImage,     imageAlt: "Bhopal service location",     status: "Coming Soon" },
+>   { id: "indore",     name: "Indore",     image: indoreImage,     imageAlt: "Indore service location",     status: "Coming Soon" },
+>   { id: "delhi-ncr",  name: "Delhi NCR",  image: delhiNcrImage,   imageAlt: "Delhi NCR service location",  status: "Coming Soon" },
+>   { id: "agra",       name: "Agra",       image: agraImage,       imageAlt: "Agra service location",       status: "Coming Soon" },
+> ];
+> ```
+>
+> Requirements:
+> - Do not display fake area counts such as "10 areas" or "18 areas" — use only the status label
+> - Do not use Unsplash, Google, or external image URLs
+> - Do not reuse one city image for another city
+> - If any city image cannot be located, do not substitute another — report the missing image filename
+> - Preserve card borders, shadows, radius, and hover behaviour
+> - Add meaningful alt text
+> - Use `object-fit: cover` — do not stretch images
+>
+> ---
+>
+> ## 10. Enable View All Button
+>
+> Enable the existing "View All" button in the city section.
+>
+> Expected behaviour:
+> - Initially show a limited number of locations
+> - Clicking "View All" reveals all 11 cities
+> - After expansion, change label to "Show Less"
+> - Clicking "Show Less" collapses the list
+> - Use component state — do not reload the page
+> - Do not navigate to an unrelated route
+> - Do not use `href="#"`
+> - Do not duplicate cards
+> - Preserve the existing button design
+> - Support mouse, touch, Enter, and Space
+> - Add `aria-expanded` and `aria-controls`
+>
+> ```ts
+> const [showAllLocations, setShowAllLocations] = useState(false);
+> const visibleLocations = showAllLocations
+>   ? SERVICE_LOCATIONS
+>   : SERVICE_LOCATIONS.slice(0, initialVisibleCount);
+> ```
+>
+> Choose `initialVisibleCount` based on the current responsive layout.
+>
+> ---
+>
+> ## 11. Contact Form — Enable Send Message Button
+>
+> Make the "Send Message" button fully functional.
+>
+> Fields:
+> - Full Name — required, trim spaces, minimum 2 characters
+> - Phone Number — required, exactly 10 digits, numeric only
+> - Email Address — optional, validate format only when entered
+> - Message — required, trim spaces, minimum 5 characters
+>
+> Button behaviour:
+> - Keep disabled while required fields are invalid
+> - Enable automatically when form becomes valid
+> - Use the actual HTML `disabled` attribute
+> - Add hover, focus-visible, loading, and disabled cursor states
+> - Add `aria-disabled` where appropriate
+>
+> Submission requirements:
+> - Inspect and reuse the existing contact API, backend endpoint, or server action
+> - Do not create duplicate logic if an endpoint already exists
+> - Prevent page reload using `type="submit"`
+> - Change button text to "Sending..." during submission
+> - Prevent duplicate submissions
+> - Trim all values before sending
+>
+> Payload:
+>
+> ```ts
+> {
+>   fullName: fullName.trim(),
+>   phoneNumber: phoneNumber.trim(),
+>   email: email.trim() || null,
+>   message: message.trim(),
+> }
+> ```
+>
+> Success state:
+> - Show: "Your message has been sent successfully. We will contact you soon."
+> - Clear the form and reset validation and button state
+> - Do not reload the page
+>
+> Error state:
+> - Show a user-friendly error
+> - Preserve entered values
+> - Re-enable the button and allow retry
+> - Do not show success unless backend request succeeds
+>
+> Accessibility:
+> - Use a semantic `<form>`
+> - Connect labels with `htmlFor`
+> - Add `aria-invalid` and `aria-describedby`
+> - Add an accessible live region for success and error messages
+> - Ensure keyboard submission works
+>
+> Do not modify the displayed phone number, address, office hours, or unrelated contact content.
+>
+> ---
+>
+> ## 12. Hero Mobile App Image
+>
+> Locate the hero section containing the right-side phone mockup.
+>
+> The user will provide a new mobile app screenshot or image.
+>
+> Replace only the current right-side phone mockup with the actual user-provided image.
+>
+> Requirements:
+> - Remove the old phone mockup implementation completely
+> - Remove old floating cards, location badge, worker badge, and decorative elements belonging only to the old mockup
+> - Do not display both old and new visuals
+> - Do not recreate the image using HTML and CSS
+> - Use the actual uploaded image asset
+> - Store it in the project's existing assets or public folder
+> - Use a clear filename: `hero-mobile-preview.png`
+>
+> Image display:
+> - Preserve the original aspect ratio
+> - Use `object-fit: contain`
+> - Do not stretch or crop incorrectly
+> - Keep the right side visually balanced
+> - Use the project's optimized image component if already available
+> - Add width and height values to reduce layout shift
+> - Add alt text: "Dehaadi mobile application preview"
+>
+> Responsive behaviour:
+> - Desktop: text on left, image on right, vertically aligned with hero content
+> - Tablet: reduce image size proportionally, prevent overlap with headings and buttons
+> - Mobile: stack image below hero text and CTA buttons, center horizontally, use `width: 100%` with safe `max-width`, prevent horizontal overflow
+>
+> Do not change the hero heading, subtitle, description, button text, routes, colors, or typography.
+>
+> ---
+>
+> ## 13. Responsive and Quality Verification
+>
+> After all implementation, verify on desktop, tablet, and mobile:
+>
+> ```
+> 1.  No unwanted FAQ item remains
+> 2.  No Aadhaar verification feature card remains
+> 3.  No Easy Profile Setup feature row remains
+> 4.  No large empty white space remains
+> 5.  Download App shows Android only
+> 6.  Terms and Conditions declaration is present
+> 7.  Mandatory Terms checkbox blocks submission when unchecked
+> 8.  Instagram link works correctly
+> 9.  Empty social media URLs do not navigate anywhere
+> 10. Reviews move continuously right to left
+> 11. Review animation pauses correctly on hover
+> 12. Reduced-motion settings are respected
+> 13. Category images are mapped correctly
+> 14. Only the specified 11 cities are displayed
+> 15. No Mumbai, Hyderabad, Jaipur, Bangalore, or unwanted city remains
+> 16. Gorakhpur shows Launching Soon
+> 17. All other cities show Coming Soon
+> 18. No fake area counts remain
+> 19. View All reveals all 11 cities
+> 20. Show Less collapses the city list
+> 21. No duplicate city cards appear
+> 22. Send Message validation works correctly
+> 23. Send Message submission reaches the real backend handler
+> 24. Duplicate form submissions are prevented
+> 25. The old hero phone mockup is completely removed
+> 26. Only the new user-provided hero image is shown
+> 27. No horizontal page overflow exists
+> 28. Buttons remain clickable and keyboard accessible
+> 29. No unused imports or lint errors remain
+> 30. Production build succeeds
+> ```
+>
+> After completion, provide a concise technical report containing:
+> - Files modified
+> - Components updated
+> - Data and configuration files updated
+> - Removed sections
+> - FAQ item removed
+> - Terms and Conditions update
+> - Social links implementation
+> - Reviews carousel implementation
+> - Category image mapping
+> - Final city list and status mapping
+> - Missing city images if any
+> - View All and Show Less behaviour
+> - Contact form submission destination
+> - Hero image asset path
+> - Lint result
+> - TypeScript result
+> - Production build result
+  ##14  In hero section replace thet mobile desing to this image i am uploading in which girl is standing wth folding hand
+---
+
+## Images Required — Complete List
+
+```
+Category Cards (4 images):
+1. labourImage         → "I am a Labour" card photo
+2. needLabourImage     → "I need a Labour" card photo
+3. contractorImage     → "I am a Contractor" card photo
+4. needContractorImage → "I need a Contractor" card photo
+
+City Images (11 images):
+5.  gorakhpur.png
+6.  lucknow.png
+7.  varanasi.png
+8.  allahabad.png
+9.  kanpur.png
+10. ayodhya.png
+11. rewa.png
+12. bhopal.png
+13. indore.png
+14. delhi-ncr.png
+15. agra.png
+
+Hero Image (1 image):
+16. hero-mobile-preview.png
+```
+
+**Total: 16 images** — upload karke path batao, main import paths update kar deta hun! 🚀
+
+
+
+toatal prompt

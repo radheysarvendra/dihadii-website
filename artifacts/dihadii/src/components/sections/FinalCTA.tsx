@@ -25,16 +25,15 @@ export function FinalCTA() {
 
             <div className="mt-8">
               <a
-                href="#"
+                href="#final-cta"
                 className="group inline-flex items-center gap-3 rounded-full bg-brand-blue px-7 py-4 text-white shadow-[0_10px_40px_-8px_rgba(11,123,239,0.6)] transition-transform hover:scale-[1.02]"
               >
-                <span className="flex items-center gap-1.5 text-xl leading-none">
-                  <span aria-hidden>🍎</span>
-                  <span aria-hidden>▶️</span>
+                <span className="flex items-center text-xl leading-none" aria-hidden>
+                  ▶️
                 </span>
                 <span className="text-base font-bold">Download App</span>
               </a>
-              <p className="mt-3 text-sm text-brand-slate">Available on iOS &amp; Android</p>
+              <p className="mt-3 text-sm text-brand-slate">Available on Android</p>
             </div>
           </motion.div>
 

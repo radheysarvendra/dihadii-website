@@ -1,20 +1,88 @@
 export interface City {
+  id: string;
   name: string;
-  areas: string;
-  status: "live" | "soon" | "coming";
+  status: "Launching Soon" | "Coming Soon";
   img: string;
+  imageAlt: string;
 }
 
-export const CITIES: City[] = [
-  { name: "Agra", areas: "10 areas", status: "live", img: "/cities/agra.jpg" },
-  { name: "Delhi", areas: "18 areas", status: "live", img: "/cities/delhi.jpg" },
-  { name: "Mumbai", areas: "15 areas", status: "live", img: "/cities/mumbai.jpg" },
-  { name: "Hyderabad", areas: "9 areas", status: "live", img: "/cities/hyderabad.jpg" },
-  { name: "Jaipur", areas: "7 areas", status: "live", img: "/cities/jaipur.jpg" },
-  { name: "Bangalore", areas: "Launching Soon", status: "soon", img: "/cities/bangalore.jpg" },
-  { name: "Amritsar", areas: "Launching Soon", status: "soon", img: "/cities/amritsar.jpg" },
-  { name: "Jodhpur", areas: "Coming Soon", status: "coming", img: "/cities/jodhpur.jpg" },
-  { name: "Mysore", areas: "Coming Soon", status: "coming", img: "/cities/mysore.jpg" },
-  { name: "Hampi", areas: "Coming Soon", status: "coming", img: "/cities/hampi.jpg" },
-  { name: "Mahabalipuram", areas: "Coming Soon", status: "coming", img: "/cities/mahabalipuram.jpg" },
+export const SERVICE_LOCATIONS: City[] = [
+  {
+    id: "gorakhpur",
+    name: "Gorakhpur",
+    img: "/cities/gorakhpur.png",
+    imageAlt: "Gorakhpur service location",
+    status: "Launching Soon",
+  },
+  {
+    id: "lucknow",
+    name: "Lucknow",
+    img: "/cities/lucknow.png",
+    imageAlt: "Lucknow service location",
+    status: "Coming Soon",
+  },
+  {
+    id: "varanasi",
+    name: "Varanasi",
+    img: "/cities/varanasi.png",
+    imageAlt: "Varanasi service location",
+    status: "Coming Soon",
+  },
+  {
+    id: "allahabad",
+    name: "Allahabad",
+    img: "/cities/allahabad.png",
+    imageAlt: "Allahabad service location",
+    status: "Coming Soon",
+  },
+  {
+    id: "kanpur",
+    name: "Kanpur",
+    img: "/cities/kanpur.png",
+    imageAlt: "Kanpur service location",
+    status: "Coming Soon",
+  },
+  {
+    id: "ayodhya",
+    name: "Ayodhya",
+    img: "/cities/ayodhya.png",
+    imageAlt: "Ayodhya service location",
+    status: "Coming Soon",
+  },
+  {
+    id: "rewa",
+    name: "Rewa",
+    img: "/cities/rewa.png",
+    imageAlt: "Rewa service location",
+    status: "Coming Soon",
+  },
+  {
+    id: "bhopal",
+    name: "Bhopal",
+    img: "/cities/bhopal.png",
+    imageAlt: "Bhopal service location",
+    status: "Coming Soon",
+  },
+  {
+    id: "indore",
+    name: "Indore",
+    img: "/cities/indore.png",
+    imageAlt: "Indore service location",
+    status: "Coming Soon",
+  },
+  {
+    id: "delhi-ncr",
+    name: "Delhi NCR",
+    img: "/cities/delhi-ncr.png",
+    imageAlt: "Delhi NCR service location",
+    status: "Coming Soon",
+  },
+  {
+    id: "agra",
+    name: "Agra",
+    // NOTE: no Agra image was provided in the uploaded asset set — reported to the user.
+    img: "/cities/agra.png",
+    imageAlt: "Agra service location",
+    status: "Coming Soon",
+  },
 ];

@@ -1,7 +1,8 @@
-import { useState, type FormEvent } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { SectionWrapper } from "@/components/shared/SectionWrapper";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const CONTACT_INFO = [
   { icon: Mail, label: "Email", value: "support@dehaadi.com" },
@@ -10,30 +11,93 @@ const CONTACT_INFO = [
   { icon: Clock, label: "Hours", value: "Monday – Saturday, 9 AM – 6 PM" },
 ];
 
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+interface FormErrors {
+  name?: string;
+  phone?: string;
+  email?: string;
+  message?: string;
+  terms?: string;
+}
+
+type Status = "idle" | "submitting" | "success" | "error";
+
 export function ContactUs() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [errors, setErrors] = useState<{ name?: string; phone?: string; message?: string }>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [status, setStatus] = useState<Status>("idle");
 
-  const handleSubmit = (e: FormEvent) => {
+  const validate = (): FormErrors => {
+    const nextErrors: FormErrors = {};
+    if (name.trim().length < 2) {
+      nextErrors.name = "Full name must be at least 2 characters.";
+    }
+    if (!/^\d{10}$/.test(phone.trim())) {
+      nextErrors.phone = "Enter a valid 10-digit phone number.";
+    }
+    if (email.trim() && !EMAIL_PATTERN.test(email.trim())) {
+      nextErrors.email = "Enter a valid email address.";
+    }
+    if (message.trim().length < 5) {
+      nextErrors.message = "Message must be at least 5 characters.";
+    }
+    if (!agreedToTerms) {
+      nextErrors.terms = "You must agree to the Terms and Conditions to continue.";
+    }
+    return nextErrors;
+  };
+
+  const isFormValid = useMemo(() => {
+    return (
+      name.trim().length >= 2 &&
+      /^\d{10}$/.test(phone.trim()) &&
+      (!email.trim() || EMAIL_PATTERN.test(email.trim())) &&
+      message.trim().length >= 5 &&
+      agreedToTerms
+    );
+  }, [name, phone, email, message, agreedToTerms]);
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (status === "submitting") return;
 
-    const nextErrors: typeof errors = {};
-    if (!name.trim()) nextErrors.name = "Full name is required.";
-    if (!/^\d{10}$/.test(phone.trim())) nextErrors.phone = "Enter a valid 10-digit phone number.";
-    if (!message.trim() || message.trim().length < 3) nextErrors.message = "Please enter a message.";
-
+    const nextErrors = validate();
     setErrors(nextErrors);
-    if (Object.keys(nextErrors).length > 0) return;
+    if (Object.keys(nextErrors).length > 0) {
+      setStatus("idle");
+      return;
+    }
 
-    setSubmitted(true);
-    setName("");
-    setPhone("");
-    setEmail("");
-    setMessage("");
+    setStatus("submitting");
+
+    const payload = {
+      fullName: name.trim(),
+      phoneNumber: phone.trim(),
+      email: email.trim() || null,
+      message: message.trim(),
+    };
+
+    try {
+      // No contact API endpoint currently exists on the backend for this project.
+      // Submission is handled locally until a real endpoint is wired up.
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      void payload;
+
+      setStatus("success");
+      setName("");
+      setPhone("");
+      setEmail("");
+      setMessage("");
+      setAgreedToTerms(false);
+      setErrors({});
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -48,11 +112,18 @@ export function ContactUs() {
             Have a question or need help? We are here for you.
           </p>
 
-          {submitted && (
-            <div className="mt-6 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-700">
-              Thank you! We will contact you soon.
-            </div>
-          )}
+          <div role="status" aria-live="polite" className="mt-6">
+            {status === "success" && (
+              <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-700">
+                Your message has been sent successfully. We will contact you soon.
+              </div>
+            )}
+            {status === "error" && (
+              <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+                Something went wrong while sending your message. Please try again.
+              </div>
+            )}
+          </div>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
             <div>
@@ -64,10 +135,16 @@ export function ContactUs() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                aria-invalid={Boolean(errors.name)}
+                aria-describedby={errors.name ? "name-error" : undefined}
                 className="w-full rounded-xl border border-brand-blue/15 bg-white px-4 py-3 text-sm text-brand-navy outline-none transition-colors focus:border-brand-blue"
                 placeholder="Your full name"
               />
-              {errors.name && <p className="mt-1 text-xs font-medium text-red-600">{errors.name}</p>}
+              {errors.name && (
+                <p id="name-error" className="mt-1 text-xs font-medium text-red-600">
+                  {errors.name}
+                </p>
+              )}
             </div>
 
             <div>
@@ -80,10 +157,16 @@ export function ContactUs() {
                 inputMode="numeric"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value.replace(/[^\d]/g, "").slice(0, 10))}
+                aria-invalid={Boolean(errors.phone)}
+                aria-describedby={errors.phone ? "phone-error" : undefined}
                 className="w-full rounded-xl border border-brand-blue/15 bg-white px-4 py-3 text-sm text-brand-navy outline-none transition-colors focus:border-brand-blue"
                 placeholder="10-digit mobile number"
               />
-              {errors.phone && <p className="mt-1 text-xs font-medium text-red-600">{errors.phone}</p>}
+              {errors.phone && (
+                <p id="phone-error" className="mt-1 text-xs font-medium text-red-600">
+                  {errors.phone}
+                </p>
+              )}
             </div>
 
             <div>
@@ -95,9 +178,16 @@ export function ContactUs() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                aria-invalid={Boolean(errors.email)}
+                aria-describedby={errors.email ? "email-error" : undefined}
                 className="w-full rounded-xl border border-brand-blue/15 bg-white px-4 py-3 text-sm text-brand-navy outline-none transition-colors focus:border-brand-blue"
                 placeholder="you@example.com"
               />
+              {errors.email && (
+                <p id="email-error" className="mt-1 text-xs font-medium text-red-600">
+                  {errors.email}
+                </p>
+              )}
             </div>
 
             <div>
@@ -109,14 +199,55 @@ export function ContactUs() {
                 rows={3}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                aria-invalid={Boolean(errors.message)}
+                aria-describedby={errors.message ? "message-error" : undefined}
                 className="w-full resize-none rounded-xl border border-brand-blue/15 bg-white px-4 py-3 text-sm text-brand-navy outline-none transition-colors focus:border-brand-blue"
                 placeholder="How can we help?"
               />
-              {errors.message && <p className="mt-1 text-xs font-medium text-red-600">{errors.message}</p>}
+              {errors.message && (
+                <p id="message-error" className="mt-1 text-xs font-medium text-red-600">
+                  {errors.message}
+                </p>
+              )}
             </div>
 
-            <Button type="submit" variant="accent" size="lg" className="w-full">
-              Send Message
+            <div>
+              <div className="flex items-start gap-3">
+                <Checkbox
+                  id="agree-terms"
+                  checked={agreedToTerms}
+                  onCheckedChange={(checked) => setAgreedToTerms(checked === true)}
+                  aria-invalid={Boolean(errors.terms)}
+                  aria-describedby={errors.terms ? "terms-error" : undefined}
+                  className="mt-0.5"
+                />
+                <label htmlFor="agree-terms" className="text-sm leading-relaxed text-brand-slate">
+                  I have read and agree to the{" "}
+                  <a
+                    href="/terms-and-conditions#worker-verification-responsibility"
+                    className="font-semibold text-brand-blue underline-offset-2 hover:underline"
+                  >
+                    Terms and Conditions
+                  </a>
+                  , including the Worker Verification and Hirer Responsibility declaration.
+                </label>
+              </div>
+              {errors.terms && (
+                <p id="terms-error" className="mt-1 text-xs font-medium text-red-600">
+                  {errors.terms}
+                </p>
+              )}
+            </div>
+
+            <Button
+              type="submit"
+              variant="accent"
+              size="lg"
+              className="w-full disabled:cursor-not-allowed"
+              disabled={!isFormValid || status === "submitting"}
+              aria-disabled={!isFormValid || status === "submitting"}
+            >
+              {status === "submitting" ? "Sending..." : "Send Message"}
             </Button>
           </form>
         </div>

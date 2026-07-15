@@ -28,11 +28,6 @@ const faqs = [
       "Yes. You can cancel or reschedule before the work starts, subject to the booking status and worker availability.",
   },
   {
-    question: "Can businesses hire multiple workers through Dehaadi?",
-    answer:
-      "Yes. Businesses and contractors can request multiple workers based on skill, location, duration, and workforce requirements.",
-  },
-  {
     question: "How can I contact the Dehaadi support team?",
     answer:
       "You can contact support through the Help & Support section, official email address, or customer-care number.",

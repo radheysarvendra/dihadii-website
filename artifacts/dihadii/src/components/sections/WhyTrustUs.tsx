@@ -1,7 +1,6 @@
 
 import { motion } from "framer-motion";
 import {
-  ShieldCheck,
   IndianRupee,
   Star,
   Handshake,
@@ -19,12 +18,6 @@ const stats = [
 ];
 
 const trustCards = [
-  {
-    icon: ShieldCheck,
-    title: "Aadhaar & Background Verified",
-    description:
-      "Every worker goes through Aadhaar verification and background checks before joining the platform.",
-  },
   {
     icon: IndianRupee,
     title: "Transparent Daily Rate",
@@ -89,7 +82,7 @@ export function WhyTrustUs() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
-        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
       >
         {trustCards.map((card) => (
           <motion.div

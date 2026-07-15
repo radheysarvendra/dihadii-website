@@ -1,5 +1,5 @@
 import { useParams, Link } from "wouter";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, X, Info, ShieldAlert } from "lucide-react";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
@@ -65,7 +65,7 @@ export default function ServiceCategoryPage() {
 
               <div className="mt-10 grid gap-4 sm:grid-cols-3">
                 {[
-                  { title: "Verified Workers", desc: "Every worker is background checked." },
+                  { title: "Screened Workers", desc: "Workers go through our onboarding checks." },
                   { title: "Transparent Rates", desc: "See the daily rate upfront, no surprises." },
                   { title: "Fast Matching", desc: "Get matched with a nearby worker in minutes." },
                 ].map((f) => (
@@ -74,6 +74,77 @@ export default function ServiceCategoryPage() {
                     <p className="mt-1.5 text-sm text-brand-slate">{f.desc}</p>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-12 grid gap-6 sm:grid-cols-2">
+                <div className="rounded-2xl border border-brand-blue/10 bg-white p-6 shadow-sm">
+                  <h3 className="flex items-center gap-2 font-bold text-brand-navy">
+                    <Check className="h-4 w-4 text-emerald-600" />
+                    What's Included
+                  </h3>
+                  <ul className="mt-4 space-y-2.5">
+                    {category.covers.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-brand-slate">
+                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {category.excludes && category.excludes.length > 0 && (
+                  <div className="rounded-2xl border border-brand-blue/10 bg-white p-6 shadow-sm">
+                    <h3 className="flex items-center gap-2 font-bold text-brand-navy">
+                      <X className="h-4 w-4 text-red-500" />
+                      Not Included
+                    </h3>
+                    <ul className="mt-4 space-y-2.5">
+                      {category.excludes.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-brand-slate">
+                          <X className="mt-0.5 h-3.5 w-3.5 shrink-0 text-red-500" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="mt-3 text-xs text-brand-slate/70">
+                      Unless separately agreed with the worker beforehand.
+                    </p>
+                  </div>
+                )}
+
+                {category.notes && category.notes.length > 0 && (
+                  <div className="rounded-2xl border border-brand-blue/10 bg-white p-6 shadow-sm">
+                    <h3 className="flex items-center gap-2 font-bold text-brand-navy">
+                      <Info className="h-4 w-4 text-brand-blue" />
+                      Good to Clarify Upfront
+                    </h3>
+                    <ul className="mt-4 space-y-2.5">
+                      {category.notes.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-brand-slate">
+                          <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-blue" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {category.safetyNotes && category.safetyNotes.length > 0 && (
+                  <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+                    <h3 className="flex items-center gap-2 font-bold text-brand-navy">
+                      <ShieldAlert className="h-4 w-4 text-amber-600" />
+                      Safety Guidance
+                    </h3>
+                    <ul className="mt-4 space-y-2.5">
+                      {category.safetyNotes.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-brand-slate">
+                          <ShieldAlert className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-600" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
               <div className="mt-10">

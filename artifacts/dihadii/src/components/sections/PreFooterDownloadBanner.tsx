@@ -1,15 +1,29 @@
 import { motion } from "framer-motion";
 import { HardHat, Wrench, MapPin, Briefcase, Building2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { PhonePreview } from "@/components/shared/PhonePreview";
-import { DownloadQrCode } from "@/components/shared/DownloadQrCode";
 import { fadeInUp } from "@/lib/animations";
 import { APP_DOWNLOAD } from "@/config/app-download";
-import { AUDIENCE_PREVIEW } from "@/data/app-features";
+import { LogoImage } from "@/components/shared/LogoImage";
+import qrCode from "@/assets/dehaadi-app-download-qr.png";
+
+/** Small floating decorative badge, matching the reference banner's scattered icon treatment. */
+function FloatingBadge({
+  icon: Icon,
+  className,
+}: {
+  icon: typeof HardHat;
+  className: string;
+}) {
+  return (
+    <div
+      className={`pointer-events-none absolute flex items-center justify-center rounded-2xl bg-white/10 text-white/70 shadow-lg backdrop-blur-sm ${className}`}
+      aria-hidden
+    >
+      <Icon className="h-1/2 w-1/2" />
+    </div>
+  );
+}
 
 export function PreFooterDownloadBanner() {
-  const preview = AUDIENCE_PREVIEW.labour;
-
   return (
     <section id="final-cta" className="bg-white px-4 pb-20 pt-4 sm:px-6 lg:px-8 md:pb-28 scroll-mt-24">
       <motion.div
@@ -19,50 +33,55 @@ export function PreFooterDownloadBanner() {
         variants={fadeInUp}
         className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-brand-navy px-6 py-12 sm:px-10 sm:py-14 md:px-16 md:py-16"
       >
-        {/* Decorative background icons */}
-        <HardHat className="pointer-events-none absolute -left-4 -top-4 h-28 w-28 text-white/5 sm:h-36 sm:w-36" aria-hidden />
-        <Wrench className="pointer-events-none absolute right-8 top-10 h-14 w-14 rotate-12 text-white/5" aria-hidden />
-        <Building2 className="pointer-events-none absolute -right-6 -bottom-6 h-32 w-32 text-white/5 sm:h-40 sm:w-40" aria-hidden />
-        <MapPin className="pointer-events-none absolute bottom-10 left-10 h-10 w-10 text-white/5" aria-hidden />
-        <Briefcase className="pointer-events-none absolute left-1/2 top-6 hidden h-10 w-10 text-white/5 md:block" aria-hidden />
-
-        <div className="relative grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="relative grid items-center gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+          {/* Left — brand + copy */}
           <div className="text-center lg:text-left">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-sky">
-              Dehaadi for Android
-            </span>
-            <h2 className="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
-              Find Work. Hire Help. Get Started with Dehaadi.
+            <div className="mb-4 inline-flex items-center gap-2">
+              <LogoImage className="h-7 w-7" />
+              <span className="text-sm font-bold uppercase tracking-widest text-brand-orange">
+                Dehaadi
+              </span>
+            </div>
+            <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+              Get the Dehaadi App Now!
             </h2>
             <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-white/70 lg:mx-0">
-              Download the Dehaadi Android app to explore work opportunities, submit labour
-              requirements, and connect with workers or contractors in your area.
+              Find work, hire labour, and connect with contractors through the
+              Dehaadi Android app.
             </p>
-
-            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
-              <Button variant="accent" size="lg" asChild>
-                {APP_DOWNLOAD.androidUrl ? (
-                  <a href={APP_DOWNLOAD.androidUrl}>Download for Android</a>
-                ) : (
-                  <a href="#prefooter-qr">Download for Android</a>
-                )}
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                asChild
-                className="border-white/25 bg-transparent text-white hover:border-white/50 hover:bg-white/10"
-              >
-                <a href="#prefooter-qr">Scan to Download</a>
-              </Button>
-            </div>
-            <p className="mt-4 text-sm text-white/50">{APP_DOWNLOAD.platformLabel}</p>
+            <p className="mt-6 text-sm text-white/50">{APP_DOWNLOAD.platformLabel}</p>
           </div>
 
-          <div className="flex flex-col items-center justify-center gap-6 sm:flex-row lg:justify-end">
-            <PhonePreview src={preview.src} alt={preview.alt} className="max-w-[200px] sm:max-w-[220px]" />
-            <div id="prefooter-qr" className="scroll-mt-24">
-              <DownloadQrCode url={APP_DOWNLOAD.androidUrl} />
+          {/* Right — QR panel with scattered decorative icons, mirroring the reference composition */}
+          <div className="relative flex items-center justify-center py-6">
+            <FloatingBadge
+              icon={HardHat}
+              className="left-2 top-0 h-14 w-14 -rotate-6 sm:left-6 sm:h-16 sm:w-16"
+            />
+            <FloatingBadge
+              icon={Wrench}
+              className="right-4 top-2 h-12 w-12 rotate-12 sm:right-10 sm:h-14 sm:w-14"
+            />
+            <FloatingBadge
+              icon={Briefcase}
+              className="bottom-2 left-4 h-12 w-12 rotate-6 sm:left-10 sm:h-14 sm:w-14"
+            />
+            <FloatingBadge
+              icon={Building2}
+              className="bottom-0 right-2 h-14 w-14 -rotate-6 sm:right-6 sm:h-16 sm:w-16"
+            />
+            <FloatingBadge
+              icon={MapPin}
+              className="left-1/2 top-[-0.5rem] hidden h-11 w-11 -translate-x-1/2 md:flex"
+            />
+
+            <div className="relative flex flex-col items-center gap-3 rounded-3xl bg-white p-5 shadow-2xl shadow-black/30">
+              <img
+                src={qrCode}
+                alt="QR code to download the Dehaadi Android app"
+                className="h-36 w-36 object-contain sm:h-40 sm:w-40"
+              />
+              <p className="text-sm font-bold text-brand-orange">Scan to Download</p>
             </div>
           </div>
         </div>

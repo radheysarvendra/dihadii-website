@@ -1,0 +1,524 @@
+````text
+Act as a senior frontend engineer and UI/UX designer. Update the existing Dehaadi website inside the current Replit project.
+
+Do not rebuild the website from scratch. First inspect the existing header, hero section, current pre-footer Android download section, footer, assets, styling system, responsive breakpoints, and component structure. Reuse the existing framework, routes, components, icon library, and design conventions.
+
+I will upload these assets into Replit:
+
+1. A newly generated construction-site hero background image
+2. A QR-code image for the Android app
+3. A reference image for the Download App section
+4. The existing Dehaadi representative/girl image is already present in the project assets
+
+Complete these two tasks:
+
+1. Redesign the header and hero using the uploaded construction background image.
+2. Rebuild the Download App section by closely matching the uploaded reference image’s layout, spacing, proportions, hierarchy, and visual composition, while replacing all third-party branding and content with Dehaadi branding and assets.
+
+Do not modify unrelated sections, routes, APIs, forms, authentication, footer links, or business logic.
+
+==================================================
+1. HEADER + HERO REDESIGN
+==================================================
+
+Locate the current header and hero containing:
+
+- Dehaadi logo
+- Services
+- How It Works
+- For Workers
+- For Contractors
+- FAQ
+- Contact Us
+- Download App button
+- Kaam Pe Chalo
+- Right Worker, Right Price
+- Hindi tagline
+- hero description
+- Download the App button
+- Request Access button
+- existing Dehaadi representative/girl image
+
+Preserve all current content, links, routes, and button behaviour.
+
+Create one shared wrapper containing both the header and complete hero section.
+
+Use the uploaded construction background image on this shared wrapper.
+
+Suggested asset name:
+
+`src/assets/dehaadi-hero-construction-background.png`
+
+Use the actual uploaded file path after inspecting the project.
+
+Apply:
+
+```css
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+````
+
+The uploaded background already includes:
+
+* a dark navy area on the left
+* construction skyline and cranes on the right
+* subtle labour-related line icons
+* sufficient empty space for hero content
+
+Do not add unnecessary extra graphics.
+
+Add only a light gradient overlay if needed for readability.
+
+Suggested implementation:
+
+```css
+.hero-header-wrapper {
+  position: relative;
+  isolation: isolate;
+  background-image: url("actual-uploaded-image-path");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-header-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(3, 15, 39, 0.42) 0%,
+    rgba(3, 15, 39, 0.18) 50%,
+    rgba(3, 15, 39, 0.04) 100%
+  );
+}
+```
+
+Do not make the entire image too dark.
+
+==================================================
+2. HERO TEXT AND BUTTON STYLING
+===============================
+
+At the top of the page:
+
+* make the main hero heading white
+* keep `Right Price` in bright Dehaadi blue
+* make the Hindi tagline white or light blue
+* make the paragraph light grey or white
+* keep the primary CTA orange
+* make the secondary CTA white text with a visible light border
+* maintain strong contrast
+
+Remove any white card or plain white hero background that blocks the uploaded image.
+
+Do not change the hero wording.
+
+==================================================
+3. EXISTING GIRL IMAGE
+======================
+
+Reuse the existing Dehaadi representative/girl image already present in the project assets.
+
+Do not:
+
+* replace it
+* generate another image
+* download a new image
+* use an external URL
+
+Improve only its presentation.
+
+Requirements:
+
+* keep the full head and face visible
+* keep hands and upper body visible where possible
+* do not stretch or distort it
+* use `object-fit: contain`
+* use `object-position: center bottom`
+* keep it on the right side on desktop
+* stack it below the content on mobile
+* prevent overlap with the text
+
+If the existing image has a visible white rectangular background:
+
+* use a transparent version already in the project if available
+* otherwise blend the edges using a soft blue gradient, radial glow, mask, or fade
+* avoid harsh rectangular edges
+* do not crop the face, hands, or branding
+
+==================================================
+4. HEADER TOP STATE
+===================
+
+At the top of the page:
+
+* header must be transparent
+* background image must remain visible behind it
+* navigation text must be white
+* dropdown arrows must be white
+* mobile-menu icon must be white
+* logo must remain clearly visible
+* Download App button must retain its orange styling
+* avoid a white header background or strong shadow
+
+Use only one header component.
+
+==================================================
+5. HEADER SCROLLED STATE
+========================
+
+When the user scrolls beyond approximately 48 pixels:
+
+* make the header sticky or fixed
+* change the background to solid white
+* change navigation text to dark navy
+* change dropdown and mobile-menu icons to dark navy
+* preserve the logo
+* preserve the Download App button
+* add a subtle bottom border or shadow
+* use a smooth transition
+
+Use conditional classes or state instead of duplicating the header.
+
+Suggested logic:
+
+```ts
+const [isScrolled, setIsScrolled] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 48);
+  };
+
+  handleScroll();
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+```
+
+Prevent layout jumping when the header becomes sticky.
+
+==================================================
+6. HERO RESPONSIVENESS
+======================
+
+Desktop:
+
+* header and hero share the uploaded background
+* content stays on the left
+* girl image stays on the right
+* maintain a balanced two-column layout
+* keep construction elements visible
+* avoid overlap
+
+Tablet:
+
+* reduce heading and image size proportionally
+* keep two columns while readable
+* adjust background position if needed
+
+Mobile:
+
+* stack content and girl image vertically
+* place girl image below the buttons
+* centre the image
+* keep header transparent initially
+* use a white sticky header after scrolling
+* keep mobile-menu icon visible in both states
+* use a mobile-specific background position if needed
+* prevent horizontal overflow
+* maintain text readability
+
+==================================================
+7. DOWNLOAD APP SECTION: MATCH THE UPLOADED REFERENCE
+=====================================================
+
+I will upload a separate Download App reference image into Replit.
+
+Before writing code:
+
+1. Locate and inspect the uploaded reference image.
+2. Study its:
+
+   * overall section dimensions
+   * content alignment
+   * left/right proportions
+   * heading size
+   * text spacing
+   * phone/device placement
+   * QR-code placement
+   * decorative shapes
+   * internal padding
+   * vertical alignment
+   * responsive intent
+3. Identify the current Dehaadi Download App component.
+4. Replace the current implementation with a Dehaadi version that follows the uploaded reference as closely as possible.
+
+The final section should match the reference in:
+
+* overall layout
+* composition
+* spacing rhythm
+* proportions
+* element positioning
+* text hierarchy
+* device/QR arrangement
+* background treatment
+* visual balance
+
+Do not copy third-party branding, logos, names, wording, food illustrations, or proprietary artwork.
+
+Use the reference as a visual blueprint, not as final branded content.
+
+==================================================
+8. DOWNLOAD APP CONTENT
+=======================
+
+Use Dehaadi branding and this content:
+
+Brand:
+`Dehaadi`
+
+Heading:
+`Get the Dehaadi App Now!`
+
+Supporting text:
+`Find work, hire labour, and connect with contractors through the Dehaadi Android app.`
+
+QR label:
+`Scan to Download`
+
+Optional helper text:
+`Available on Android`
+
+Do not mention:
+
+* iOS
+* App Store
+* fake ratings
+* fake download counts
+* fake offers
+* fake city availability
+
+==================================================
+9. EXACT REFERENCE-BASED IMPLEMENTATION RULES
+=============================================
+
+Use the uploaded reference image as the primary visual guide.
+
+Match it closely in terms of:
+
+* banner aspect ratio
+* section height
+* internal padding
+* left text-block width
+* right visual-block width
+* heading line breaks
+* text alignment
+* phone or device angle
+* QR panel size
+* element overlap
+* visual depth
+* spacing between text and visual
+* placement relative to the footer
+
+However, replace reference-specific elements with:
+
+* Dehaadi logo
+* Dehaadi copy
+* uploaded QR code
+* Dehaadi blue/navy/orange brand colours
+* Dehaadi-related decorative elements
+* Dehaadi app visual or phone frame
+
+Do not make a generic banner if the reference has a more specific composition. Recreate the same structural feel carefully.
+
+==================================================
+10. DOWNLOAD APP VISUALS
+========================
+
+Use:
+
+* the uploaded QR code
+* the provided Dehaadi app visual or current Dehaadi phone preview if available
+* Dehaadi-related decorative icons where the reference contains decorative elements
+
+Possible Dehaadi-related decorative elements:
+
+* worker helmet
+* tools
+* location pin
+* briefcase
+* building outline
+* worker profile icon
+
+Keep them subtle.
+
+Do not use food graphics or third-party artwork.
+
+==================================================
+11. QR CODE IMPLEMENTATION
+==========================
+
+Use the exact QR image uploaded into Replit.
+
+Suggested asset name:
+
+`src/assets/dehaadi-app-download-qr.png`
+
+Requirements:
+
+* do not generate a new QR
+* do not crop it
+* do not rotate it
+* do not blur it
+* do not distort it
+* use `object-fit: contain`
+* place it on a clean white panel
+* preserve quiet space around the QR
+* keep it large enough to scan
+* add alt text:
+  `QR code to download the Dehaadi Android app`
+
+If the reference shows the QR inside a phone/device frame, follow that same visual arrangement using the uploaded QR.
+
+==================================================
+12. DOWNLOAD APP RESPONSIVENESS
+===============================
+
+Desktop:
+
+* follow the uploaded reference image closely
+* preserve similar two-column or overlapping composition
+* keep QR fully visible
+* keep text readable
+* avoid unwanted overlap
+
+Tablet:
+
+* reduce sizes proportionally
+* preserve the reference’s visual hierarchy
+* stack only when the original layout no longer fits
+
+Mobile:
+
+* maintain the same design intent
+* stack text and visuals cleanly
+* keep QR centred and scannable
+* keep heading readable
+* prevent horizontal overflow
+* preserve spacing above the footer
+
+The Download App section must remain immediately above the footer and visually separate from it.
+
+==================================================
+13. ACCESSIBILITY
+=================
+
+Ensure:
+
+* strong text contrast
+* semantic `<header>`, `<nav>`, and `<section>` structure
+* keyboard-accessible navigation
+* visible focus states in both header states
+* meaningful image alt text
+* sticky header does not cover anchor targets
+* mobile navigation remains accessible
+* reduced-motion preferences are respected
+
+==================================================
+14. RESTRICTIONS
+================
+
+Do not:
+
+* rebuild the entire website
+* change existing routes
+* modify unrelated sections
+* modify APIs or authentication
+* replace the existing girl image
+* use external image URLs
+* generate another background image
+* generate another QR
+* add iOS/App Store references
+* create duplicate headers
+* remove existing hero content
+* distort images
+* break mobile navigation
+* introduce horizontal overflow
+* ignore the uploaded Download App reference image
+* create a generic layout when the reference is available
+
+==================================================
+15. FINAL VERIFICATION
+======================
+
+Verify all of the following:
+
+1. The uploaded construction image covers both header and hero.
+2. No plain white background blocks the hero.
+3. Hero content remains unchanged.
+4. Hero text is readable.
+5. Existing girl image is reused.
+6. Girl image is not stretched or badly cropped.
+7. Girl image blends naturally into the hero.
+8. Header is transparent at the top.
+9. Navigation text is white at the top.
+10. Header becomes white after scrolling.
+11. Navigation text becomes dark after scrolling.
+12. Header transition is smooth.
+13. Mobile menu remains visible in both states.
+14. The Download App reference image was inspected and used.
+15. The new Download App section closely matches the reference layout.
+16. Third-party branding and content are removed.
+17. Dehaadi branding is used.
+18. Uploaded QR is displayed clearly.
+19. QR remains scannable.
+20. Download App section remains above the footer.
+21. Desktop layout works.
+22. Tablet layout works.
+23. Mobile layout works.
+24. No horizontal overflow exists.
+25. Existing links and buttons remain functional.
+26. No unused imports or styles remain.
+27. Lint passes.
+28. TypeScript passes if configured.
+29. Production build succeeds.
+
+Before editing, identify:
+
+* current header component
+* current hero component
+* current Download App component
+* current footer component
+* uploaded hero background asset path
+* existing girl-image asset path
+* uploaded QR asset path
+* uploaded Download App reference-image path
+* intended implementation approach based on the reference
+
+After completion, report:
+
+* files modified
+* reference image analysis
+* background implementation
+* overlay implementation
+* girl-image adjustments
+* transparent header styling
+* scrolled header styling
+* Download App section implementation
+* reference elements matched
+* Dehaadi replacements made
+* QR implementation
+* responsive verification
+* accessibility updates
+* lint result
+* TypeScript result
+* production build result
+
+```
+```

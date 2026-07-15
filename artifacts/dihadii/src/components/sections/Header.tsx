@@ -21,7 +21,8 @@ export function Header() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 48);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -39,14 +40,21 @@ export function Header() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
           scrolled
-            ? "bg-white/95 shadow-md shadow-brand-navy/5 backdrop-blur-md"
+            ? "bg-white shadow-md shadow-brand-navy/5"
             : "bg-transparent"
         )}
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 md:h-20">
           <a href="/" className="relative z-10 flex items-center gap-2">
             <LogoImage className="h-9 w-9 md:h-10 md:w-10" priority />
-            <span className="text-lg font-extrabold text-brand-navy md:text-xl">Dehaadi</span>
+            <span
+              className={cn(
+                "text-lg font-extrabold md:text-xl transition-colors duration-300",
+                scrolled ? "text-brand-navy" : "text-white"
+              )}
+            >
+              Dehaadi
+            </span>
           </a>
 
           <nav className="hidden items-center gap-8 lg:flex">
@@ -58,10 +66,18 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setServicesOpen((v) => !v)}
-                className="flex items-center gap-1 text-sm font-medium text-brand-navy/80 transition-colors hover:text-brand-blue"
+                className={cn(
+                  "flex items-center gap-1 text-sm font-medium transition-colors hover:text-brand-blue",
+                  scrolled ? "text-brand-navy/80" : "text-white"
+                )}
               >
                 Services
-                <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", servicesOpen && "rotate-180")} />
+                <ChevronDown
+                  className={cn(
+                    "h-3.5 w-3.5 transition-transform",
+                    servicesOpen && "rotate-180"
+                  )}
+                />
               </button>
 
               <AnimatePresence>
@@ -97,7 +113,10 @@ export function Header() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-brand-navy/80 transition-colors hover:text-brand-blue"
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-brand-blue",
+                  scrolled ? "text-brand-navy/80" : "text-white"
+                )}
               >
                 {link.label}
               </a>
@@ -112,7 +131,10 @@ export function Header() {
 
           <button
             type="button"
-            className="relative z-10 rounded-lg p-2 text-brand-navy lg:hidden"
+            className={cn(
+              "relative z-10 rounded-lg p-2 transition-colors duration-300 lg:hidden",
+              scrolled ? "text-brand-navy" : "text-white"
+            )}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >

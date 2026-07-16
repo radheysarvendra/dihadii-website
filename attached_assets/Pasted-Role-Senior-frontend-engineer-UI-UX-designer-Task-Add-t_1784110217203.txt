@@ -50,7 +50,7 @@ Do not claim: verified workers, background-checked, guaranteed jobs, instant
 hiring, fixed rates — unless genuinely implemented.
 
 AUDIENCE DIFFERENTIATION
-Add tabs/segmented control: For Labourers / For Customers / For Contractors.
+Add tabs/segmented control: For Labourers / Book Workers / Manage Skills.
 Selecting a tab updates the feature cards (and phone screenshot where
 suitable) via component state — no page reload.
 

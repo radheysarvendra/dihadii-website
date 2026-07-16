@@ -97,7 +97,7 @@ export const APP_FEATURES: AppFeature[] = [
     icon: IdCard,
   },
 
-  // For Customers
+  // Book Workers
   {
     id: "customer-category",
     audience: "customer",
@@ -141,7 +141,7 @@ export const APP_FEATURES: AppFeature[] = [
     icon: Activity,
   },
 
-  // For Contractors
+  // Manage Skills
   {
     id: "contractor-profile",
     audience: "contractor",

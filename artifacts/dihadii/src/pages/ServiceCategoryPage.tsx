@@ -21,17 +21,36 @@ export default function ServiceCategoryPage() {
       <Header />
       <main className="pt-16 md:pt-20">
         {/* Hero */}
-        <section className="relative overflow-hidden">
-          <div className="relative h-[360px] w-full sm:h-[440px]">
+        <section className="relative overflow-hidden bg-brand-navy">
+          <div className="relative h-[380px] w-full sm:h-[460px] md:h-[520px]">
+            {/* Blurred full-bleed background for texture */}
             <img
               src={category.img}
-              alt={category.name}
-              className="h-full w-full object-cover"
+              alt=""
+              aria-hidden
+              className="absolute inset-0 h-full w-full scale-110 object-cover opacity-20 blur-sm"
               style={{ objectPosition: category.imagePosition }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-brand-navy/10" />
+
+            {/* Left-to-right navy gradient so text stays readable */}
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/85 to-brand-navy/20" />
+
+            {/* Portrait image — right-aligned, full height, contained so full person shows */}
+            <div className="absolute bottom-0 right-0 h-full w-1/2 sm:w-[44%] flex items-end justify-end">
+              <img
+                src={category.img}
+                alt={category.name}
+                className="h-full w-auto object-contain object-bottom"
+              />
+              {/* Fade the left edge of the portrait into the gradient */}
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-brand-navy/90 to-transparent" />
+            </div>
+
+            {/* Bottom fade to match detail section bg */}
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-brand-navy to-transparent" />
           </div>
 
+          {/* Text overlay */}
           <div className="absolute inset-0 flex flex-col justify-end">
             <div className="mx-auto w-full max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
               <Link

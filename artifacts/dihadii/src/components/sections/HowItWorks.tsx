@@ -12,13 +12,13 @@ const STEPS = [
     step: "02",
     title: "Choose a required skill",
     desc: ".Select a Work Category and Corresponding to the skill.",
-    screen: "/app-screens/step-2.png",
+    screen: "/app-screens/step-3.png",
   },
   {
     step: "03",
     title: "Confirm Your Booking",
     desc: "Enter your pincode or area to find skilled workers near you.",
-    screen: "/app-screens/step-3.png",
+    screen: "/app-screens/step-2.png",
   },
 ];
 

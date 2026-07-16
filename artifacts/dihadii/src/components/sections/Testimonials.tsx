@@ -6,35 +6,35 @@ import { SectionWrapper, SectionHeading } from "@/components/shared/SectionWrapp
 
 /* PLACEHOLDER — replace with real user testimonials */
 const testimonials = [
-  {
+   {
     quote:
-      "Sample testimonial — replace with real user quote. Dehaadi helped me find reliable masons for my home renovation at a fair daily rate.",
-    name: "Sample User A",
-    location: "Gurugram, Haryana",
+      "Helpful app for local labour booking. Good for small cities and daily work needs",
+    name: "Geeta Sharma",
+    location: "Gorakhpur, Uttar Pradesh",
     rating: 5,
     initial: "A",
   },
   {
     quote:
-      "Sample testimonial — replace with real user quote. As a contractor, I can now hire verified workers directly without paying broker commissions.",
-    name: "Sample User B",
-    location: "Faridabad, Haryana",
+      "Good platform for hiring labour, contractors and skilled workers like plumbers, electricians, painters and carpenter.",
+    name: "Manish",
+    location: "Gorakhpur, Uttar Pradesh",
     rating: 5,
     initial: "B",
   },
   {
     quote:
-      "Sample testimonial — replace with real user quote. The transparent daily rate feature saved me from overpaying. I knew exactly what I was getting.",
-    name: "Sample User C",
-    location: "Delhi NCR",
+      "The registration and mobile login flow is simple. It is easy for both labourers and customers to understand and use.",
+    name: "Manjot",
+    location: "Gorakhpur, Uttar Pradesh",
     rating: 4,
     initial: "C",
   },
   {
     quote:
-      "Sample testimonial — replace with real user quote. Finding farm labour during harvest season used to be a headache. Dehaadi made it simple.",
-    name: "Sample User D",
-    location: "Sonipat, Haryana",
+      "Worker time par aaye aur kaam achhe se complete kiya. Service smooth thi aur overall experience accha raha.",
+    name: "Ramesh Kumar",
+    location: "Gorakhpur, Uttar Pradesh",
     rating: 5,
     initial: "D",
   },

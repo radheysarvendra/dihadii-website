@@ -11,8 +11,8 @@ import { staggerContainer, fadeInUp } from "@/lib/animations";
 
 /* PLACEHOLDER — replace with real data */
 const stats = [
-  { end: 10000, suffix: "+", label: "Workers Onboarded" },
-  { end: 500, suffix: "+", label: "Contractors" },
+  { end: 100, suffix: "+", label: "Workers Onboarded" },
+  { end: 10, suffix: "+", label: "Contractors" },
   { end: 0, prefix: "₹", label: "Hidden Fees" },
   { end: 4.8, suffix: "★", label: "Average Rating", decimals: 1 },
 ];

@@ -32,8 +32,8 @@ export interface AppFeature {
 
 export const AUDIENCE_TABS: { value: Audience; label: string }[] = [
   { value: "labour", label: "For Labourers" },
-  { value: "customer", label: "For Customers" },
-  { value: "contractor", label: "For Contractors" },
+  { value: "customer", label: "Book Workers" },
+  { value: "contractor", label: "Manage Skills" },
 ];
 
 /** Phone screenshot shown alongside each audience's feature set. */

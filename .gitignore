@@ -9,7 +9,8 @@ out-tsc
 .expo-shared
 
 # dependencies
-node_modules
+/node_modules/
+/**/node_modules/
 
 # IDEs and editors
 /.idea
@@ -36,6 +37,12 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+/.next/
+/.turbo/
+/.cache/
+/.local/
+/.expo/
+/.expo-shared/
 
 # System Files
 .DS_Store

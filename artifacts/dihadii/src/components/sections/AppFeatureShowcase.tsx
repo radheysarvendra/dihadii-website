@@ -24,7 +24,7 @@ export function AppFeatureShowcase() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">
-            Dehaadi App Features
+            Dihadii App Features
           </span>
           <h2 className="mt-3 text-3xl font-extrabold text-brand-navy sm:text-4xl md:text-5xl">
             Everything You Need to Find Work or Hire Help

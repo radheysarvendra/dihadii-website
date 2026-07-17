@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
 const CONTACT_INFO = [
-  { icon: Mail, label: "Email", value: "support@dehaadi.com" },
+  { icon: Mail, label: "Email", value: "support@dihadii.com" },
   { icon: Phone, label: "Phone", value: "+917565060096" },
   { icon: MapPin, label: "Address", value: "Dummy" },
   { icon: Clock, label: "Hours", value: "Monday – Saturday, 9 AM – 6 PM" },

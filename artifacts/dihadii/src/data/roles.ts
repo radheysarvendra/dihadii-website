@@ -37,7 +37,7 @@ export const USER_CATEGORY_CARDS: RoleCategory[] = [
     description:
       "Find daily-wage and skilled work near you. Showcase your skills and connect with suitable work opportunities.",
     image: CATEGORY_IMAGES.labourImage,
-    imageAlt: "Dehaadi labourer in branded polo, arms crossed, at a construction site",
+    imageAlt: "Dihadii labourer in branded polo, arms crossed, at a construction site",
     imageFit: "cover",
     imagePosition: "center 12%",
     actionLabel: "Get Started",
@@ -61,7 +61,7 @@ export const USER_CATEGORY_CARDS: RoleCategory[] = [
     description:
       "Manage your projects, build your team, and connect with clients directly on the platform.",
     image: CATEGORY_IMAGES.contractorImage,
-    imageAlt: "Contractor wearing a Dehaadi branded helmet at a construction site",
+    imageAlt: "Contractor wearing a Dihadii branded helmet at a construction site",
     imageFit: "cover",
     imagePosition: "center 8%",
     actionLabel: "Get Started",

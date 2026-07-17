@@ -40,15 +40,15 @@ export const AUDIENCE_TABS: { value: Audience; label: string }[] = [
 export const AUDIENCE_PREVIEW: Record<Audience, { src: string; alt: string }> = {
   labour: {
     src: "/app-screens/step-1.png",
-    alt: "Dehaadi app home screen with role-selection options: I am a Labour, I need a Labour, I am a Contractor, I need a Contractor",
+    alt: "Dihadii app home screen with role-selection options: I am a Labour, I need a Labour, I am a Contractor, I need a Contractor",
   },
   customer: {
     src: "/app-screens/step-2.png",
-    alt: "Dehaadi app screen showing a selected work category, work location fields, and matched worker counts",
+    alt: "Dihadii app screen showing a selected work category, work location fields, and matched worker counts",
   },
   contractor: {
     src: "/app-screens/step-3.png",
-    alt: "Dehaadi app screen for selecting a work category and skills when posting a requirement",
+    alt: "Dihadii app screen for selecting a work category and skills when posting a requirement",
   },
 };
 

@@ -8,7 +8,7 @@ export function LogoImage({ className }: LogoImageProps) {
   return (
     <img
       src="/logo.jpg"
-      alt="Dehaadi"
+      alt="Dihadii"
       width={40}
       height={40}
       className={`rounded-lg object-cover ${className ?? ""}`}

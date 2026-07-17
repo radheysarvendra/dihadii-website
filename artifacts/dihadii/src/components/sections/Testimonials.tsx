@@ -59,7 +59,7 @@ export function Testimonials() {
       <SectionHeading
         title="What People Say"
         hindiTagline="लोग क्या कहते हैं"
-        subtitle="Hear from workers, contractors, and customers who use Dehaadi."
+        subtitle="Hear from workers, contractors, and customers who use Dihadii."
       />
 
       <div className="relative mx-auto max-w-3xl">

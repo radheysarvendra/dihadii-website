@@ -53,7 +53,7 @@ export function Header() {
                 scrolled ? "text-brand-navy" : "text-white"
               )}
             >
-              Dehaadi
+              Dihadii
             </span>
           </a>
 

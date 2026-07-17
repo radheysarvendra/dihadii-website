@@ -88,7 +88,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Existing Dehaadi representative image — background removed, anchored
+      {/* Existing Dihadii representative image — background removed, anchored
           to the hero's bottom edge so it reads like it's standing in the scene. */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -98,7 +98,7 @@ export function Hero() {
       >
         <img
           src={heroGirl}
-          alt="Dehaadi representative in branded workwear"
+          alt="Dihadii representative in branded workwear"
           className="h-[420px] w-auto object-contain object-bottom lg:h-[560px] xl:h-[620px]"
         />
       </motion.div>

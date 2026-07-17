@@ -8,9 +8,9 @@ import { SectionWrapper } from "@/components/shared/SectionWrapper";
 
 const faqs = [
   {
-    question: "What is Dehaadi, and who can use it?",
+    question: "What is Dihadii, and who can use it?",
     answer:
-      "Dehaadi connects customers and businesses with skilled workers, labourers, contractors, and local service providers.",
+      "Dihadii connects customers and businesses with skilled workers, labourers, contractors, and local service providers.",
   },
   {
     question: "How can I book a skilled worker?",
@@ -28,7 +28,7 @@ const faqs = [
       "Yes. You can cancel or reschedule before the work starts, subject to the booking status and worker availability.",
   },
   {
-    question: "How can I contact the Dehaadi support team?",
+    question: "How can I contact the Dihadii support team?",
     answer:
       "You can contact support through the Help & Support section, official email address, or customer-care number.",
   },
@@ -42,7 +42,7 @@ export function FAQ() {
           Frequently Asked Questions
         </h2>
         <p className="mt-4 text-lg text-brand-slate">
-          Everything you need to know about Dehaadi
+          Everything you need to know about Dihadii
         </p>
       </div>
 

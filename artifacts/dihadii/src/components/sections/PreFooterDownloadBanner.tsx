@@ -39,15 +39,15 @@ export function PreFooterDownloadBanner() {
             <div className="mb-4 inline-flex items-center gap-2">
               <LogoImage className="h-7 w-7" />
               <span className="text-sm font-bold uppercase tracking-widest text-brand-orange">
-                Dehaadi
+                Dihadii
               </span>
             </div>
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-              Get the Dehaadi App Now!
+              Get the Dihadii App Now!
             </h2>
             <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-white/70 lg:mx-0">
               Find work, hire labour, and connect with contractors through the
-              Dehaadi Android app.
+              Dihadii Android app.
             </p>
             <p className="mt-6 text-sm text-white/50">{APP_DOWNLOAD.platformLabel}</p>
           </div>
@@ -78,7 +78,7 @@ export function PreFooterDownloadBanner() {
             <div className="relative flex flex-col items-center gap-3 rounded-3xl bg-white p-5 shadow-2xl shadow-black/30">
               <img
                 src={qrCode}
-                alt="QR code to download the Dehaadi Android app"
+                alt="QR code to download the Dihadii Android app"
                 className="h-36 w-36 object-contain sm:h-40 sm:w-40"
               />
               <p className="text-sm font-bold text-brand-orange">Scan to Download</p>

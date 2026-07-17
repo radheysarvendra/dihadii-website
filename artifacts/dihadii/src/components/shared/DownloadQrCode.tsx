@@ -52,7 +52,7 @@ export function DownloadQrCode({ url, className }: DownloadQrCodeProps) {
     <div className={`rounded-2xl bg-white p-2.5 shadow-lg sm:p-3 ${className ?? ""}`}>
       <img
         src={dataUrl}
-        alt="Scan to download the Dehaadi app."
+        alt="Scan to download the Dihadii app."
         className="h-28 w-28 sm:h-32 sm:w-32"
       />
     </div>

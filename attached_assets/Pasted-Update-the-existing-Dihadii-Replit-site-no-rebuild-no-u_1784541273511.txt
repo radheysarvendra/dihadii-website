@@ -1,0 +1,51 @@
+Update the existing Dihadii Replit site — no rebuild, no unrelated changes.
+
+First, report: Services dropdown component, central service-data file, current image mappings, newly uploaded image paths, old paths to replace, approved categories found in code.
+
+Task
+
+Replace old/non-branded service images with the newly uploaded branded worker images (blue Dihadii T-shirt + logo), everywhere they appear: dropdown, listing card, detail hero/banner, related cards, thumbnails, search/category previews.
+
+One image per category, from a single central SERVICES array (no duplicated arrays across components).
+Use latest upload only; never mix old + new.
+If no new image exists yet for a category, keep the current one — never borrow another category's image, use an external URL, or a placeholder. Report missing categories.
+Cleanup
+Remove old image imports, data references, duplicate mappings, unused vars/fallbacks.
+Delete old image files only after confirming (project-wide search) they're unused elsewhere.
+No CSS-hiding, no dead/commented code.
+Approved categories (only these 16)
+
+Mason, Carpenter, Painter, Electrician, Plumber, Housemaid, Cook/Helper, Cleaner, Gardener, Caretaker, Delivery Boy, Security Guard, Farm Labourer, Shop Helper, Tailor, Hotel/Dhaba Worker.
+
+Remove all others (Driver, Welder, AC Technician, Mechanic, Construction Helper, Logistics, Manufacturing, CCTV, Packers and Movers, standalone Harvesting, etc.) — data entries, imports, menu items, unused routes.
+
+Config shape
+js
+export const SERVICES = [
+  {
+    id: "mason", slug: "mason", title: "Mason", titleHindi: "राजमिस्त्री",
+    image: masonImage,
+    imageAlt: "Dihadii mason working at a construction site",
+    thumbnailPosition: "center 25%", heroPosition: "center 30%",
+    thumbnailFit: "cover", heroFit: "cover",
+  },
+  // ...remaining 15 categories
+];
+Image rules
+Local assets only (e.g. src/assets/services/mason.png), original aspect ratio preserved, no stretching.
+Keep face, logo, and category tools/context visible.
+Per-category object-position; don't reuse one crop for all.
+Thumbnails: equal size, rounded corners, object-fit: cover, tuned object-position.
+Detail banners: responsive height, cover normally, contain + branded background if cover would crop key content.
+Meaningful alt text, consistent "Dihadii" spelling (not Dehaadi/Dihaadi/etc.) in new content only.
+Do not
+
+Rebuild the site; touch APIs/auth/forms/business logic; use external image URLs; show old+new together; leave duplicate imports; delete in-use images; add unapproved categories; cause horizontal overflow.
+
+Verify & report after
+New images live everywhere per category; old ones gone; old files/imports removed safely (or retained + why).
+Only the 16 approved categories show, no duplicates.
+Faces/logos visible, no bad cropping/stretching.
+Routes, desktop/tablet/mobile dropdown, no horizontal overflow, no broken images.
+Lint, TypeScript, and production build all pass.
+Final report: files modified, images mapped/removed/retained, final category list, removed categories, still-missing branded images, route/responsive/lint/TS/build results.
